@@ -1,4 +1,7 @@
-.carousel-inner img{
-    width: 100% !important;
-    height: 100px;
+html {
+    scroll-behavior: smooth;
+}
+
+.footer-widgets {
+    color: white;
 }
