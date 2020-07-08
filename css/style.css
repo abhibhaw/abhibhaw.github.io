@@ -8,59 +8,32 @@
 
 
 /* adding some css  for carousel to become fade   */
-.carousel-item {
-    opacity: 0;
-    transition: opacity 0.6s ease !important; 
-}
-
+.carousel-item.active,
 .carousel-item-next,
-.carousel-item-prev {
-    left: 0 !important;
+.carousel-item-prev
+{
+    /*SET IN BS AS FLEXBOX. SO PERSPECTIVE SCALE DID NOT WORK*/
+    display:block;
 }
 
-.carousel-item-next.carousel-item-left,
-.carousel-item-prev.carousel-item-right {
-    -webkit-transform: none;
-            transform: none;
+
+.carousel-inner>.carousel-item>a>img,
+.carousel-inner>.carousel-item>img,
+.img-responsive
+{
+    display: block;
+    max-width: 100%;
+    height: auto;
 }
 
-@supports ((-webkit-transform-style: preserve-3d) or (transform-style: preserve-3d)) {
-    .carousel-item-next.carousel-item-left,
-    .carousel-item-prev.carousel-item-right {
-    -webkit-transform: none;
-            transform: none;
-    }
+.carousel-fade .carousel-inner .carousel-item {
+    -webkit-transition-property: opacity;
+    -moz-transition-property: opacity;
+    -o-transition-property: opacity;
+    -ms-transition-property: opacity;
+    transition-property: opacity;
 }
 
-.carousel-item-next,
-.active.carousel-item-right {
-    -webkit-transform: none;
-            transform: none;
-}
-
-@supports ((-webkit-transform-style: preserve-3d) or (transform-style: preserve-3d)) {
-    .carousel-item-next,
-    .active.carousel-item-right {
-    -webkit-transform: none;
-            transform: none;
-    }
-}
-
-.carousel-item-prev,
-.active.carousel-item-left {
-    -webkit-transform: none;
-            transform: none;
-}
-
-@supports ((-webkit-transform-style: preserve-3d) or (transform-style: preserve-3d)) {
-    .carousel-item-prev,
-    .active.carousel-item-left {
-    -webkit-transform: none;
-            transform: none;
-    }
-}
-
-// THE FIX
 .carousel-inner .carousel-item,
 .carousel-inner .active.carousel-item-left,
 .carousel-inner .active.carousel-item-right
@@ -70,7 +43,21 @@
 
 .carousel-inner .active,
 .carousel-inner .carousel-item-next.carousel-item-left,
-.carousel-inner .carousel-item-prev.carousel-item-right
+.carousel-inner .carousel-item-previous.carousel-item-right
 {
     opacity: 1;
+}
+
+.carousel-item.active,
+.active.carousel-item-left,
+.active.carousel-item-prev,
+.carousel-item-next.carousel-item-left,
+.carousel-item-prev.carousel-item-right
+{
+    left: 0;
+    -webkit-transform: translate3d(0, 0, 0);
+    -moz-transform: translate3d(0, 0, 0);
+    -o-transform: translate3d(0, 0, 0);
+    -ms-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
 }
