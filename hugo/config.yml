@@ -1,4 +1,63 @@
-baseURL: http://abhibhaw.co/
+baseURL: "https://abhibhaw.co/"
 languageCode: en-us
 title: Abhibhaw Asthana
 theme: "PaperMod"
+
+enableRobotsTXT: true
+buildDrafts: false
+buildFuture: false
+buildExpired: false
+
+googleAnalytics: "G-Y8XJ5XSDHT"
+
+minify:
+    disableXML: true
+    minifyOutput: true
+
+outputs:
+    home:
+        - HTML
+        - RSS
+
+params:
+    env: production # to enable google analytics, opengraph, twitter-cards and schema.
+    title: Abhibhaw Asthana
+    description: "A Tech Enthusiast, who loves building and deploying scalable applications. Connects on coffee, code & business ideas."
+    keywords: [abhibhaw, abhibhaw asthana, Software, Engineer, NIT Rourkela]
+    author: Abhibhaw Asthana
+    images: ["https://avatars.githubusercontent.com/u/39991296?v=4"]
+    DateFormat: "October 31, 2001"
+    defaultTheme: dark # auto, light
+    disableThemeToggle: false
+
+    ShowReadingTime: true
+    ShowShareButtons: true
+    ShowPostNavLinks: true
+    ShowBreadCrumbs: true
+    ShowCodeCopyButtons: true
+    disableSpecial1stPost: false
+    disableScrollToTop: false
+    comments: false
+    hidemeta: false
+    hideSummary: false
+    showtoc: false
+    tocopen: false
+
+    # home-info mode
+    homeInfoParams:
+        Title: "Heya \U0001F44B"
+        Content: I am Abhibhaw. A tech enthusiast, who loves building and deploying scalable applications.
+
+    socialIcons:
+        - name: twitter
+          url: "https://twitter.com/imabhibhaw"
+        - name: github
+          url: "https://github.com/abhibhaw"
+        - name: linkedin
+          url: "https://www.linkedin.com/in/abhibhaw/"
+        - name: email
+          url: "mailto:asthana3110@gmail.com"
+        - name: codechef
+          url: "https://codechef.com/xori"
+        - name: rss
+          url: /index.xml
