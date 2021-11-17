@@ -1,5 +1,2 @@
-### Abhibhaw Asthana's Website
-
-## Currently Accessible at: 
-# https://abhibhaw.github.io & 
-# https://abhibhaw.team
+# Landing Page
+Based on [hugo papermod theme](https://github.com/adityatelange/hugo-PaperMod/)
