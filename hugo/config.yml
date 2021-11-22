@@ -42,10 +42,11 @@ params:
     hideSummary: false
     showtoc: false
     tocopen: false
+    enableEmoji: true
 
     # home-info mode
     homeInfoParams:
-        Title: "Heya \U0001F44B"
+        Title: "Heya &#128075;"
         Content: I am Abhibhaw. A tech enthusiast, who loves building and deploying scalable applications.
 
     socialIcons:
@@ -61,3 +62,9 @@ params:
           url: "https://codechef.com/xori"
         - name: rss
           url: /index.xml
+menu:
+    main:
+        - identifier: resume
+          name: Resume
+          url: /resume.pdf
+          weight: 50
