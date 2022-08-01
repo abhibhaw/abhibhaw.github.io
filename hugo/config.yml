@@ -1,70 +1,151 @@
 baseURL: "https://abhibhaw.com/"
-languageCode: en-us
 title: Abhibhaw Asthana
-theme: "PaperMod"
+paginate: 5
+theme: PaperMod
 
 enableRobotsTXT: true
 buildDrafts: false
 buildFuture: false
 buildExpired: false
 
-googleAnalytics: "G-Y8XJ5XSDHT"
+googleAnalytics: G-Y8XJ5XSDHT
 
 minify:
-    disableXML: true
-    minifyOutput: true
-
-outputs:
-    home:
-        - HTML
-        - RSS
+  disableXML: true
+  minifyOutput: true
 
 params:
-    env: production # to enable google analytics, opengraph, twitter-cards and schema.
+  env: production # to enable google analytics, opengraph, twitter-cards and schema.
+  title: Abhibhaw Asthana
+  description: "A Tech Enthusiast, who loves building and deploying scalable applications. Connects on coffee, code & business ideas."
+  keywords:
+    [
+      abhibhaw,
+      abhibhaw asthana,
+      Software,
+      Engineer,
+      NIT Rourkela,
+      blog,
+      portfolio,
+    ]
+  author: Abhibhaw Asthana
+  # author: ["Me", "You"] # multiple authors
+  images: ["https://avatars.githubusercontent.com/u/39991296?v=4"]
+  DateFormat: "October 31, 2001"
+  defaultTheme: dark # auto, dark, light
+  disableThemeToggle: false
+
+  ShowReadingTime: true
+  ShowShareButtons: true
+  ShowPostNavLinks: true
+  ShowBreadCrumbs: true
+  ShowCodeCopyButtons: false
+  ShowWordCount: true
+  ShowRssButtonInSectionTermList: true
+  UseHugoToc: true
+  disableSpecial1stPost: false
+  disableScrollToTop: false
+  comments: false
+  hidemeta: false
+  hideSummary: false
+  showtoc: false
+  tocopen: false
+
+  assets:
+    # disableHLJS: true # to disable highlight.js
+    # disableFingerprinting: true
+    favicon: "<link / abs url>"
+    favicon16x16: "<link / abs url>"
+    favicon32x32: "<link / abs url>"
+    apple_touch_icon: "<link / abs url>"
+    safari_pinned_tab: "<link / abs url>"
+
+  label:
+    text: "Home"
+    icon: /apple-touch-icon.png
+    iconHeight: 35
+
+  # profile-mode
+  profileMode:
+    enabled: true # needs to be explicitly set
     title: Abhibhaw Asthana
-    description: "A Tech Enthusiast, who loves building and deploying scalable applications. Connects on coffee, code & business ideas."
-    keywords: [abhibhaw, abhibhaw asthana, Software, Engineer, NIT Rourkela]
-    author: Abhibhaw Asthana
-    images: ["https://avatars.githubusercontent.com/u/39991296?v=4"]
-    DateFormat: "October 31, 2001"
-    defaultTheme: dark # auto, light
-    disableThemeToggle: false
+    subtitle: "A Tech Enthusiast, who loves building and deploying scalable applications. Connects on coffee, code & business ideas."
+    imageUrl: "https://avatars.githubusercontent.com/u/39991296?v=4"
+    imageWidth: 120
+    imageHeight: 120
+    imageTitle: avatar
+    buttons:
+      - name: Posts
+        url: posts
+      - name: Tags
+        url: tags
 
-    ShowReadingTime: true
-    ShowShareButtons: true
-    ShowPostNavLinks: true
-    ShowBreadCrumbs: true
-    ShowCodeCopyButtons: true
-    disableSpecial1stPost: false
-    disableScrollToTop: false
-    comments: false
-    hidemeta: false
-    hideSummary: false
-    showtoc: false
-    tocopen: false
-    enableEmoji: true
+  # home-info mode
+  homeInfoParams:
+    Title: "Heya \U0001F44B"
+    Content: I am Abhibhaw. A tech enthusiast, who loves building and deploying scalable applications.
 
-    # home-info mode
-    homeInfoParams:
-        Title: "Heya &#128075;"
-        Content: I am Abhibhaw. A tech enthusiast, who loves building and deploying scalable applications.
+  socialIcons:
+    - name: twitter
+      url: "https://twitter.com/imabhibhaw"
+    - name: github
+      url: "https://github.com/abhibhaw"
+    - name: linkedin
+      url: "https://www.linkedin.com/in/abhibhaw/"
+    - name: email
+      url: "mailto:hi@abhibhaw.com"
+    - name: rss
+      url: /index.xml
 
-    socialIcons:
-        - name: twitter
-          url: "https://twitter.com/imabhibhaw"
-        - name: github
-          url: "https://github.com/abhibhaw"
-        - name: linkedin
-          url: "https://www.linkedin.com/in/abhibhaw/"
-        - name: email
-          url: "mailto:asthana3110@gmail.com"
-        - name: codechef
-          url: "https://codechef.com/xori"
-        - name: rss
-          url: /index.xml
+  analytics:
+    google:
+      SiteVerificationTag: "XYZabc"
+    bing:
+      SiteVerificationTag: "XYZabc"
+    yandex:
+      SiteVerificationTag: "XYZabc"
+
+  cover:
+    hidden: true # hide everywhere but not in structured data
+    hiddenInList: true # hide on list pages and home
+    hiddenInSingle: true # hide on single page
+
+  editPost:
+    URL: "https://github.com/abhibhaw/abhibhaw.github.io/content"
+    Text: "Suggest Changes" # edit text
+    appendFilePath: true # to append file path to Edit link
+
+  # for search
+  # https://fusejs.io/api/options.html
+  fuseOpts:
+    isCaseSensitive: false
+    shouldSort: true
+    location: 0
+    distance: 1000
+    threshold: 0.4
+    minMatchCharLength: 0
+    keys: ["title", "permalink", "summary", "content"]
 menu:
-    main:
-        - identifier: resume
-          name: Resume
-          url: /resume.pdf
-          weight: 50
+  main:
+    - identifier: categories
+      name: categories
+      url: /categories/
+      weight: 10
+    - identifier: tags
+      name: tags
+      url: /tags/
+      weight: 20
+    - identifier: resume
+      name: resume
+      url: /resume.pdf
+      weight: 30
+# Read: https://github.com/adityatelange/hugo-PaperMod/wiki/FAQs#using-hugos-syntax-highlighter-chroma
+pygmentsUseClasses: true
+markup:
+  highlight:
+    noClasses: false
+    # anchorLineNos: true
+    # codeFences: true
+    # guessSyntax: true
+    # lineNos: true
+    # style: monokai
