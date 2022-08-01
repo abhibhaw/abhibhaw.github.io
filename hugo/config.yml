@@ -86,10 +86,10 @@ params:
     Content: I am Abhibhaw. A tech enthusiast, who loves building and deploying scalable applications.
 
   socialIcons:
-    - name: twitter
-      url: "https://twitter.com/imabhibhaw"
     - name: github
       url: "https://github.com/abhibhaw"
+    - name: twitter
+      url: "https://twitter.com/imabhibhaw"
     - name: linkedin
       url: "https://www.linkedin.com/in/abhibhaw/"
     - name: email
@@ -111,7 +111,7 @@ params:
     hiddenInSingle: true # hide on single page
 
   editPost:
-    URL: "https://github.com/abhibhaw/abhibhaw.github.io/content"
+    URL: "https://github.com/abhibhaw/abhibhaw.github.io/tree/main/hugo/content"
     Text: "Suggest Changes" # edit text
     appendFilePath: true # to append file path to Edit link
 
