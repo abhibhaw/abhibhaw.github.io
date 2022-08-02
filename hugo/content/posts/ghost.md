@@ -38,6 +38,36 @@ editPost:
 
 # TODO
 
-- Install and setup `gh-ost` on AWS linux jumphost.
-- run a sample alter migration.
-- log the records here.
+## Install and setup `gh-ost` on AWS linux jumphost.
+
+- As this is an AMD machine, we will download the latest build of the same.
+
+`wget <latest_release_tar>`
+
+[GH-OST Release](https://github.com/github/gh-ost/releases/)
+
+- Time to extract the tar, for linux machine use:
+  `tar -xvf <file_name.tar>`
+
+## run a sample alter migration.
+
+Let's first start by testing your migration. Notice we aren't using **--execute** flag which is actually responsible for executing the alter request.
+
+Complete information can be found in the official [cheatsheet](https://github.com/github/gh-ost/blob/master/doc/cheatsheet.md)
+
+### Parameters required:
+
+1. Host Name
+2. user
+3. password
+4. DB Name
+5. Table to Alter
+6. Alter command
+
+`./gh-ost --host=<host> --user=<user> --password=<password> --database=<db> --table=<table_name> --alter="ADD COLUMN jira_id varchar(30) NOT NULL" --chunk-size=2000 --max-load=Threads_connected=20`
+
+Chunk-size and max load can control when to fire up the process.
+
+## log the records here.
+
+To be continued...
