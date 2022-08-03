@@ -68,6 +68,23 @@ Complete information can be found in the official [cheatsheet](https://github.co
 
 Chunk-size and max load can control when to fire up the process.
 
-## log the records here.
+## Test migration on replica
+
+Notice as we added `--execute` flag to execute the query, for testing.
+
+`./gh-ost --host=<host> --user=<user> --password=<password> --database=<db> --table=<table_name> --alter="ADD COLUMN jira_id varchar(30) NOT NULL" --chunk-size=2000 --max-load=Threads_connected=20 --test-on-replica --execute `
+
+- you can run `show tables` command to check if the ghost table has been created or not.
+- table name of type \_<table_name>\_gho will be created representing new changes in the table.
+- CHECKSUM TABLE <original_table>, <ghost_table> EXTENDED;
+- If checksum matches, then the migration is complete and both the tables are identical.
+
+## Actual migration
+
+`./gh-ost --host=<host> --user=<user> --password=<password> --database=<db> --table=<table_name> --alter="ADD COLUMN jira_id varchar(30) NOT NULL" --chunk-size=2000 --max-load=Threads_connected=20 --execute`
+
+Actual migration has been started and you can see printed logs for progress.
+
+## Automating the journey.
 
 To be continued...
