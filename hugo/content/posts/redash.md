@@ -36,11 +36,13 @@ editPost:
     appendFilePath: true # to append file path to Edit link
 ---
 
-Redash is such an amazing tool that literally helps you make sense of your data. If this is the first time you have encountered this word (I'm expecting you aren't): [Redash](https://redash.io/) is an opensource tool that helps you to connect and query your data sources, build some cool dashboards & graphs to visualize data and share them with your company.
+Redash is such an amazing tool that literally helps you make sense of your data. If this is the first time you have encountered this word:
 
-We at our company are using the same to run tons of query across multiple datasources and teams. But as the team size keeps growing, it became difficult to manage and audit the permissions of the users. In our case any one with our company email have default access to redash, so we will be only updating the permissions for user, you can use the same approach for creating new user as well.
+> [Redash](https://redash.io/) is an opensource tool that helps you to connect and query your data sources, build some cool dashboards & graphs to visualize data and share them with your team.
 
-Luckily we have our in-house permission management dashboard built over Django, where a user raises a request to get a particular permission and the manager aka approver verifies and approves the request. So we decided to add this Redash permission thing to the same flow.
+We at our company are using the same to run tons of queries across multiple datasources and teams. But as the team size kept growing, it becames difficult to manage and audit the permissions of the users.
+
+Luckily we have our in-house permission management dashboard built over Django, where a user raises a request to get a particular permission and the manager **aka approver** verifies and approves the request. So we decided to add this Redash permission thing to the same flow. In our case anyone with our company's email have default access to redash (via Google SSO), so we will be only updating the permissions for user in this article, you can use the same approach for creating new user or any other api requirements as well.
 
 ## Context
 
@@ -48,7 +50,7 @@ As stated above our dashboard is built over Django, the code examples below are 
 
 After going through the [Redash API docs](https://redash.io/help/user-guide/integrations-and-api/api/), our redash client network tab and few googling, I figured out that the redash API is pretty simple and straight forward. You just need to append `/api/` between your base url and route to get the API endpoint.
 
-> ### Note
+> ### The Solution
 
 > Let's say your redash client is accessible at: `https://redash.example.com/` and you are able to get the list of all the groups at: `https://redash.example.com/groups`, then the API endpoint would be: `https://redash.example.com/api/groups`
 
@@ -104,7 +106,7 @@ From here the main utility functions are specific to my use case but you can use
 
 So we need the following main functions:
 
-1. `get_available_groups_for_user` to get all the groups the user isn't part of, which requires the following functions:
+1. `get_available_groups_for_user` to get all the groups the user isn't part of. As I couldn't find a readymade `api endpoint` for this we will require the following functions:
    - `get_all_groups` to get all the groups in the redash instance
    - `get_user_groups` to get all the groups the user is part of
 
@@ -134,14 +136,14 @@ def get_available_groups_for_user(self, email):
     user_groups = self.get_user_groups(email)
     available_groups = []
     for group in all_groups:
-        current_group = {'name': group['name'], 'id': group['id']}
+        current_group = {'name': group['name'], 'id': group['id']} # we will be appending group id for the final function & name to display in dropdown
         if current_group not in user_groups:
-            available_groups.append(group)
+            available_groups.append(current_group)
     return available_groups
 ```
 
-2. `post_user_in_that_group` to add the user to the selected group. As this POST request requires user_id not emailID, we need to get the user_id from the emailID. So we need this function as well:
-   - `get_user_id` to get the user id of the user
+2. And then, `post_user_in_that_group` to add the user to the selected group. As this POST request requires user_id not emailID, we need to get the user_id from the emailID. So we need this function as well:
+   - `get_user_id` to get the user id of the user. It will also act as a check if the user got removed/deleted from redash after raising the request.
 
 ```
 def get_user_id(self, email):
@@ -162,7 +164,7 @@ Now as we have everything in place. We can finally `update` the requested group 
 ```
 def post_user_in_that_group(self, email, group_id):
         try:
-            user_id = self.get_user_id(email)
+            user_id = self.get_user_id(email) # You can put a check here to go ahead only if user_id is not None
             path = f"groups/{group_id}/members"
             response = self._post(path, json={"user_id": user_id})
             return response.json()
