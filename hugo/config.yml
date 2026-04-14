@@ -1,6 +1,7 @@
 baseURL: "https://abhibhaw.com/"
 title: Abhibhaw Asthana
-paginate: 5
+pagination:
+  pagerSize: 5
 theme: PaperMod
 
 enableRobotsTXT: true
@@ -8,7 +9,9 @@ buildDrafts: false
 buildFuture: false
 buildExpired: false
 
-googleAnalytics: G-LMP5PJK7J2
+services:
+  googleAnalytics:
+    id: G-LMP5PJK7J2
 
 minify:
   disableXML: true
