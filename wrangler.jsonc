@@ -1,0 +1,18 @@
+// Cloudflare Worker that serves the Hugo site as static assets.
+// Build first: hugo --source hugo --gc --minify  (writes hugo/public)
+// Deploy: npx wrangler deploy  (CI does both on push to main)
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "abhibhaw-site",
+  "compatibility_date": "2026-11-17",
+  // abhibhaw.com is canonical (matches baseURL). A zone redirect rule sends www to it.
+  "routes": [
+    { "pattern": "abhibhaw.com", "custom_domain": true },
+    { "pattern": "www.abhibhaw.com", "custom_domain": true }
+  ],
+  "assets": {
+    "directory": "./hugo/public",
+    "html_handling": "auto-trailing-slash",
+    "not_found_handling": "404-page"
+  }
+}
