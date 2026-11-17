@@ -55,7 +55,8 @@ experience:
             text: "Users with failed deployments had to read raw logs and often opened support tickets. I shipped Atlas, which finds the root cause and suggests a fix: root-cause time fell from hours to about a minute, and time to recovery from hours to minutes."
 
   - company: "BharatPe"
-    role: "Software Engineer, internal tools"
+    role: "SDE Intern"
+    note: "during B.Tech"
     dates: "Mar 2022 - May 2023"
     bullets:
       - title: "Self-service ops portal"
@@ -75,10 +76,8 @@ projects:
     text: "Older Indians with diabetes, BP and thyroid miss medicines unless family reminds them. I am building an AI nurse that calls them on WhatsApp in Hindi and briefs family and doctors. Its safety checks pass all 52 red-team cases."
   - title: "Dhanvantari"
     text: "Indian doctors lack a trusted clinical Q&A tool that covers Indian guidelines and medicines. I am building one where every claim links to a source, and a release is blocked if citation accuracy drops."
-  - title: "Ejento Shimyureta"
-    text: "Teams cannot safely re-run an agent's production conversations to test a change. I am building a tool that rebuilds the apps an agent used from its traces, then replays each conversation with a live model."
   - title: "Peira"
-    text: "Teams testing AI agents lack realistic behavior data. I ran 100 open-source agents on 10,000 tasks and collected 9,902 usable recordings for $261."
+    text: "AI agents keep failing in production, and teams find and fix each failure by hand. I am building Peira, which finds repeated failures in an agent's traces and proposes a code fix. It tests each fix by rebuilding the apps the agent used from its traces and replaying its conversations. A person approves every fix. For realistic test data, I ran 100 open-source agents on 10,000 tasks: 9,902 usable recordings for $261."
 
 education:
   - school: "National Institute of Technology, Rourkela"
