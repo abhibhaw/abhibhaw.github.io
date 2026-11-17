@@ -48,7 +48,7 @@ experience:
         about: "the core Kubernetes deployment product"
         bullets:
           - title: "Trial conversion"
-            text: "Trial users left before they saw value; users who deployed in 20 minutes stayed 3x more. I rebuilt the trial around a guided first deploy: 4x inbound leads, 33% faster paid conversion."
+            text: "Trial users left before they saw value; users who deployed within 20 minutes stayed 3x more. I rebuilt the trial around a guided first deploy: 4x inbound leads, 33% faster paid conversion."
           - title: "Enterprise approvals"
             text: "15+ interviews showed regulated enterprises could not adopt us without sign-off before production changes. I shipped multi-level approvals and deploy policies, which became a key reason they chose Devtron."
           - title: "Atlas, AI debugging assistant"
@@ -60,7 +60,9 @@ experience:
     dates: "Mar 2022 - May 2023"
     bullets:
       - title: "Self-service ops portal"
-        text: "Engineers waited 14 days for a small DevOps team to run database queries and server changes. I built a self-service portal with access rules and audit logs: 20,000+ requests, wait cut to 17 minutes."
+        text: "Engineers waited 14 days for a small DevOps team to run database queries and server changes. I built a self-service portal for database, Kafka, GitHub, Redash and API gateway requests, with manager approval and a Jira audit trail. It handled 20,000+ requests and cut the wait to 17 minutes."
+      - title: "Safe database changes"
+        text: "Changing a live MySQL table could lock it and cause downtime. I added zero-downtime table changes to the portal, with a data check before switch-over and a second sign-off from DevOps."
 
   - company: "Gepton"
     role: "Co-founder and CTO"
@@ -77,7 +79,7 @@ projects:
   - title: "Dhanvantari"
     text: "Indian doctors lack a trusted clinical Q&A tool that covers Indian guidelines and medicines. I am building one where every claim links to a source, and a release is blocked if citation accuracy drops."
   - title: "Peira"
-    text: "AI agents keep failing in production, and teams find and fix each failure by hand. I am building Peira, which finds repeated failures in an agent's traces and proposes a code fix. It tests each fix by rebuilding the apps the agent used from its traces and replaying its conversations. A person approves every fix. For realistic test data, I ran 100 open-source agents on 10,000 tasks: 9,902 usable recordings for $261."
+    text: "AI agents keep failing in production, and teams find and fix each failure by hand. I am building Peira, which finds repeated failures in an agent's traces and proposes a code fix. It tests each fix by rebuilding the apps the agent used from its traces and replaying its conversations. A person approves every fix."
 
 education:
   - school: "National Institute of Technology, Rourkela"
