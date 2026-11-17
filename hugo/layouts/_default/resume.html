@@ -71,7 +71,7 @@ li b{font-weight:600}
     <h1>{{ $p.name }}</h1>
     <div class="headline">{{ $p.headline }}</div>
     <div class="contact">
-      {{- range $p.contact }}<a href="{{ .url }}">{{ .label }}</a>{{ end -}}
+      {{- range $c := $p.contact }}{{ if $c.url }}<a href="{{ $c.url }}">{{ $c.label }}</a>{{ else }}<span>{{ $c.label }}</span>{{ end }}{{ end -}}
     </div>
     <p class="summary">{{ $p.summary }}</p>
   </header>

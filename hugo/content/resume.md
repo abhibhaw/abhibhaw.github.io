@@ -11,6 +11,9 @@ searchHidden: true
 name: "Abhibhaw Asthana"
 headline: "Product Manager · AI-native products"
 contact:
+  - label: "Gurgaon, India"
+  - label: "+91 77549 49803"
+    url: "tel:+917754949803"
   - label: "hi@abhibhaw.com"
     url: "mailto:hi@abhibhaw.com"
   - label: "abhibhaw.com"
@@ -41,7 +44,7 @@ experience:
         about: "self-service GPUs for AI teams"
         bullets:
           - title: "Faster GPU access"
-            text: "AI teams waited days for GPUs and weeks to ship a model, through infra tickets. I defined self-service GPU workspaces, training jobs and one-click model deploys, cutting GPU tickets by 80%+ and giving developers full self-service."
+            text: "AI teams waited days for GPUs and weeks to ship a model, through infra tickets. I defined self-service GPU workspaces, training jobs and one-click model deploys, cutting GPU tickets by 80%+ and making developers fully independent."
           - title: "Better GPU use"
             text: "Costly GPUs sat idle or stayed locked to one team. I added team quotas, usage policies and GPU sharing (MIG, time-slicing), improving GPU utilization and allocation by 23% on average."
       - name: "Devtron Platform"
@@ -90,7 +93,7 @@ skills:
   - label: "Product"
     text: "customer discovery and interviews, specs and PRDs, prioritization, funnel and activation metrics (PostHog), enterprise governance (RBAC, approvals, audit)"
   - label: "AI"
-    text: "GPU platforms (quotas, MIG, time-slicing), model serving (KServe, vLLM, Triton), AI agents and their governance, evals and replay testing, RAG with citations, voice AI, LLM safety and red teaming"
+    text: "AI agents and their governance, evals and replay testing, RAG with citations, voice AI, LLM safety and red teaming, GPU platforms (quotas, MIG, time-slicing), model serving (KServe, vLLM, Triton)"
   - label: "Technical"
     text: "Kubernetes, Docker, Go, Python, TypeScript, React, PostgreSQL; building prototypes with AI coding agents"
 ---
