@@ -1,0 +1,10 @@
+{{ define "main" }}
+<div class="wrap">
+  <header class="page-head">
+    <h1>{{ .Title }}</h1>
+    {{- with .Params.lede }}<p class="standfirst">{{ . }}</p>{{ end }}
+  </header>
+  <div class="section" style="padding-top:40px"><div class="section-head"><h2>The loop</h2></div>{{ partial "loop.html" . }}</div>
+  <article class="prose article-body page-end" style="padding-top:48px">{{ .Content }}</article>
+</div>
+{{ end }}

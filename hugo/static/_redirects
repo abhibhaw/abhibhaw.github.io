@@ -1,0 +1,10 @@
+# Old PaperMod URLs -> new structure (Cloudflare Workers static assets)
+/posts/redash/   /notes/automating-redash-permissions/   301
+/posts/redash    /notes/automating-redash-permissions/   301
+/posts/ghost/    /notes/online-schema-migration-gh-ost/  301
+/posts/ghost     /notes/online-schema-migration-gh-ost/  301
+/posts/*         /notes/   301
+/tags/*          /notes/   301
+/categories/*    /notes/   301
+/index.xml       /notes/index.xml   301
+/resume.pdf/     /resume.pdf  301

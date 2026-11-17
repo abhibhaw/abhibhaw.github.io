@@ -1,0 +1,7 @@
+{{- /* The product loop. Steps live in content/how-i-work.md front matter. */ -}}
+{{- with site.GetPage "/how-i-work" }}
+<ol class="loop">
+  {{- range .Params.loop }}<li><b>{{ .name }}</b>{{ .text }}</li>{{ end }}
+</ol>
+<p class="loop-note">{{ .Params.loop_note }}</p>
+{{- end }}

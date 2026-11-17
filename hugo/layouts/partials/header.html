@@ -1,0 +1,13 @@
+<header class="masthead">
+  <div class="wrap">
+    <a class="brand" href="{{ "/" | relURL }}">{{ site.Title }}</a>
+    <nav class="nav" aria-label="Main">
+      {{- $cur := . }}
+      {{- range site.Menus.main }}
+      {{- $active := false }}
+      {{- with .Page }}{{ if or (eq . $cur) (and (ne .Section "") (eq .Section $cur.Section)) }}{{ $active = true }}{{ end }}{{ end }}
+      <a href="{{ .URL }}"{{ if $active }} aria-current="page"{{ end }}>{{ .Name }}</a>
+      {{- end }}
+    </nav>
+  </div>
+</header>

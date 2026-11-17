@@ -1,0 +1,57 @@
+{{ define "main" }}
+{{- $p := .Params }}
+<div class="wrap">
+  <section class="lead">
+    <h1>{{ $p.hero }}</h1>
+    <p class="standfirst">{{ $p.lede }}</p>
+    <p class="links"><a href="#work">The work</a><a href="mailto:{{ site.Params.email }}">{{ site.Params.email }}</a></p>
+
+    <table class="ledger">
+      <caption>{{ $p.pattern_title }}</caption>
+      <thead><tr><th scope="col">Who waited</th><th scope="col">For what</th><th scope="col">Before</th><th scope="col">After</th><th scope="col">Product</th></tr></thead>
+      <tbody>
+        {{- range $p.ledger }}
+        <tr>
+          <td class="who">{{ .who }}</td>
+          <td class="what">{{ .what }}</td>
+          {{- if .after }}
+          <td class="before"><del class="was"><span class="vh">was </span>{{ .before }}</del></td>
+          <td class="after"><ins class="now"><span class="vh">now </span>{{ .after }}</ins></td>
+          {{- else }}
+          <td class="before plain">{{ .before }}</td>
+          <td class="after pending">{{ .pending }}</td>
+          {{- end }}
+          <td class="where"><a href="{{ .link | relURL }}">{{ .product }}</a></td>
+        </tr>
+        {{- end }}
+      </tbody>
+    </table>
+  </section>
+
+  <section class="section" id="work">
+    <div class="section-head"><h2>Work</h2><a href="{{ "/work/" | relURL }}">All case studies</a></div>
+    <ul class="rows">{{ range (site.GetPage "/work").Pages.ByWeight }}{{ partial "row.html" . }}{{ end }}</ul>
+  </section>
+
+  <section class="section">
+    <div class="section-head"><h2>Building now</h2><a href="{{ "/projects/" | relURL }}">All projects</a></div>
+    <p class="section-note">Independent products I am building in my free time. None is live yet.</p>
+    <ul class="rows">{{ range (site.GetPage "/projects").Pages.ByWeight }}{{ partial "row.html" . }}{{ end }}</ul>
+  </section>
+
+  <section class="section">
+    <div class="section-head"><h2>How I work</h2><a href="{{ "/how-i-work/" | relURL }}">The full method</a></div>
+    {{- with site.GetPage "/how-i-work" }}
+    <p class="steps">{{ range $i, $s := .Params.loop }}{{ if $i }}<span aria-hidden="true"> → </span>{{ end }}<b>{{ $s.name }}</b>{{ end }}<span aria-hidden="true"> → </span><span class="muted">back to Discover.</span></p>
+    <p class="section-note">{{ .Params.lede }}</p>
+    {{- end }}
+  </section>
+
+  {{- with (site.GetPage "/notes").Pages }}
+  <section class="section page-end">
+    <div class="section-head"><h2>Notes</h2><a href="{{ "/notes/" | relURL }}">All notes</a></div>
+    {{ partial "note-list.html" (first 4 .ByDate.Reverse) }}
+  </section>
+  {{- end }}
+</div>
+{{ end }}

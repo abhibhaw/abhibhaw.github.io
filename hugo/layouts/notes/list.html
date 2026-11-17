@@ -1,0 +1,14 @@
+{{ define "main" }}
+<div class="wrap page-end">
+  <header class="page-head">
+    <h1>{{ .Title }}</h1>
+    {{- with .Params.lede }}<p class="standfirst">{{ . }}</p>{{ end }}
+  </header>
+  {{- range $kind := slice "product" "technical" }}
+  {{- with where $.Pages "Params.kind" $kind }}
+  <h2 class="group-title">{{ if eq $kind "product" }}Product notes{{ else }}Technical notes{{ end }}</h2>
+  {{ partial "note-list.html" . }}
+  {{- end }}
+  {{- end }}
+</div>
+{{ end }}

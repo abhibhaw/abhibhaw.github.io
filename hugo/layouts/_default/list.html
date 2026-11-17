@@ -1,0 +1,11 @@
+{{ define "main" }}
+<div class="wrap page-end">
+  <header class="page-head">
+    <h1>{{ .Title }}</h1>
+    {{- with .Params.lede }}<p class="standfirst">{{ . }}</p>{{ end }}
+  </header>
+  <div class="section" style="padding-top:40px">
+    <ul class="rows" style="border-top:2px solid var(--ink)">{{ range .Pages.ByWeight }}{{ partial "row.html" . }}{{ end }}</ul>
+  </div>
+</div>
+{{ end }}

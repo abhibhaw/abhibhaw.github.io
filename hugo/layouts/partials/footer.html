@@ -1,0 +1,10 @@
+<footer class="colophon">
+  <div class="wrap">
+    <span>{{ site.Params.author }} · <a href="mailto:{{ site.Params.email }}">{{ site.Params.email }}</a></span>
+    <nav aria-label="Elsewhere">
+      {{- range site.Params.social }}<a href="{{ .url }}" rel="me">{{ .name }}</a>{{ end }}
+      <a href="{{ "/resume/" | relURL }}">Resume</a>
+      <a href="{{ "/notes/index.xml" | relURL }}">RSS</a>
+    </nav>
+  </div>
+</footer>
