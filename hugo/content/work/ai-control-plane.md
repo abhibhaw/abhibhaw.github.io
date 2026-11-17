@@ -25,44 +25,22 @@ facts:
 
 ## The problem
 
-Building an AI agent got easy.
-Running one in production did not.
+Building an AI agent got easy. Running one in production did not.
+Teams that shipped agents hit three questions:
 
-Teams that shipped agents hit the same three questions:
+1. **How do we release a change safely?** A new prompt or tool can break an agent in ways a unit test misses.
+2. **What is the agent allowed to do?** It calls real tools with real data.
+3. **Can we change the model?** A new model can be cheaper and better, or quietly worse on your tasks.
 
-1. **How do we release a change safely?** A new prompt or tool can break an agent in ways a unit test does not catch.
-2. **What is the agent allowed to do?** An agent calls real tools with real data. Someone must set and enforce limits.
-3. **Can we change the model?** Models change every few months. A new model can be cheaper and better, or quietly worse on your tasks.
+Scripts and manual checks work for one agent. They fail at ten.
 
-Each team answered these with scripts and manual checks.
-That works for one agent. It fails at ten.
+## The decisions
 
-## What I decided
-
-**One control plane, not five tools.**
-Build, release, access control and testing are steps of one lifecycle.
-Splitting them across tools means nobody sees the whole agent.
-So the product covers the lifecycle in one place.
-
-**Replay before release.**
-The best test for an agent is its own past.
-Before a change goes live, the control plane replays real past conversations against the new version and shows what changed.
-A model swap becomes a decision with evidence, not a guess.
-
-**Governance by default.**
-Every agent gets an owner, limits on what it can access, and an audit trail.
-A platform team sets the rules once. Agent teams ship inside them.
-
-This is the same pattern as the [GPU Platform](/work/gpu-platform/) and [BharatPe](/work/bharatpe-self-service/): remove the wait, and keep it safe.
+- **One control plane** for build, release, access and testing, so someone sees the whole agent.
+- **Replay before release.** A change is tested against real past conversations, so a model swap is decided with evidence.
+- **Governance by default.** A platform team sets the rules once. Agent teams ship inside them.
 
 ## What I left out
 
-We did not build another agent framework.
-Teams already chose one, and switching frameworks is a cost they will not pay for governance.
-The control plane works with the agents teams already have.
-
-## Where it is now
-
-The product is in private beta.
-Three design partners run it with their own agents.
-Their feedback decides what we build next.
+Another agent framework.
+Teams keep the framework they already chose.

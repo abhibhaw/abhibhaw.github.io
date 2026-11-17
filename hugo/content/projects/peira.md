@@ -20,38 +20,44 @@ facts:
     text: "In development. No customers yet."
 links:
   - { label: "peira.tech", url: "https://peira.tech" }
+flows:
+  loop:
+    caption: "Each fix is proven on past conversations, and a person approves it."
+    lanes:
+      - label: "Find and fix"
+        steps:
+          - node: "Production traces"
+            note: "Langfuse, LangSmith, OpenTelemetry"
+          - edge: "grouped into"
+          - node: "Repeated failures"
+          - edge: "coding agent proposes"
+          - node: "Fix"
+            note: "prompt, tool or code"
+          - edge: "replayed on"
+          - node: "Past conversations"
+            note: "in a world rebuilt from traces"
+      - label: "Ship"
+        steps:
+          - node: "Pull request with evidence"
+          - edge: "a person approves"
+          - node: "Fix ships"
+          - edge: "joins"
+          - node: "Protected set"
+            note: "later changes cannot make these worse"
 ---
 
 ## The problem
 
-An AI agent that works in a demo fails in production in small, repeated ways.
-It calls the wrong tool.
-It loses context.
-It answers a question it should have handed to a person.
+An agent that works in a demo fails in production in small, repeated ways.
+Teams learn about it from users, read traces by hand, and hope a fix does not break another case.
 
-Teams learn about these failures from users.
-Then an engineer reads traces, finds a pattern, changes a prompt or a tool, and hopes the change does not break another case.
+## How it works
 
-## The decisions
+{{< flow "loop" >}}
 
-**Start from production traces.**
-Teams already log what their agents do, in tools like Langfuse, LangSmith or OpenTelemetry.
-Peira reads those traces and groups the failures that repeat.
-
-**Prove the fix before anyone reviews it.**
-A coding agent proposes a change to the prompt, a tool or the code.
-Peira tests it by replaying past conversations.
-It rebuilds the apps and data the agent used from the traces, so the replay does not touch real systems.
-
-**A person approves every change.**
-The fix arrives as one pull request, with the failures it fixes and the replays that prove it.
-Nothing ships without a person.
-
-**Never fix one thing by breaking another.**
-Each fixed failure joins a protected set.
-Peira rejects any later change that makes a protected case worse.
+The replay rebuilds the apps and data the agent used from its traces, so it never touches real systems.
 
 ## Why this matters to me
 
 At Devtron I work on how companies [ship and govern AI agents](/work/ai-control-plane/).
-Peira explores the next question: once an agent is in production, how does it get better without a person doing all the work?
+Peira explores the next question: how does an agent get better after it ships?

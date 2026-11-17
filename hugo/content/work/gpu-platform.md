@@ -24,65 +24,52 @@ facts:
 links:
   - { label: "GPU Orchestration on devtron.ai", url: "https://devtron.ai/platform/gpu-orchestration" }
   - { label: "Blog: GPU platform problems on Kubernetes", url: "https://devtron.ai/blog/kubernetes-gpu-management-problems/" }
+flows:
+  access:
+    caption: "The ticket left the path. Infra teams set the rules once, before any request."
+    lanes:
+      - label: "Before"
+        steps:
+          - node: "AI engineer"
+          - edge: "opens a ticket"
+          - node: "Infra team"
+            struck: true
+            note: "checks capacity by hand, days"
+          - edge: "sets it up"
+          - node: "GPU"
+            note: "kept by one team, often idle"
+      - label: "After"
+        steps:
+          - node: "Infra team"
+            note: "sets quotas, policies, sharing once"
+          - edge: "rules apply to every request"
+          - node: "Platform"
+          - edge: "AI engineer self-serves"
+          - node: "GPU"
+            note: "notebook, training job or model deploy"
 ---
 
-## The problem
+## How it works
 
-Companies bought GPUs for AI work and put them in Kubernetes clusters.
-Then the GPUs became a queue.
-
-An AI engineer who needed a GPU opened a ticket.
-The infra team checked capacity, set up the workload and sent back access.
-That took days.
-Shipping a trained model to an endpoint took more tickets and weeks.
-
-At the same time, the GPUs were not busy.
-A team that got a GPU kept it, in case it needed it again.
-Other teams waited while that GPU sat idle.
-
-So there were two problems with one cause.
-AI teams waited too long, and the GPUs were used too little.
+Teams waited too long, and the GPUs were used too little.
 Both came from one team doing every step by hand.
 
-## What I decided
+{{< flow "access" >}}
 
-The goal was to remove the ticket, not to make the ticket faster.
-
-**AI teams serve themselves.**
-An engineer starts a GPU notebook, runs a training job or deploys a model from one interface.
-Model serving uses the standard open-source servers (KServe, vLLM, Triton), so teams keep the tools they know.
-
-**Infra teams set the rules once.**
-Self-service without rules would make the idle-GPU problem worse.
-So the infra team sets a quota for each team, usage policies, and how GPUs are shared.
 GPU sharing (MIG and time-slicing) lets several small jobs use one large GPU.
-The platform enforces the rules on every request, so nobody has to approve each one.
+Model serving uses the open-source servers teams already know: KServe, vLLM and Triton.
 
-**One view of the fleet.**
-Infra teams see every GPU: allocated, used and free, by team.
-That turns a capacity argument into a number.
-
-{{< figure src="/images/work/gpu-fleet.webp" alt="GPU fleet dashboard showing total, allocated, used and available GPUs, utilization charts and a GPU inventory by type" caption="The GPU fleet view: allocation and use by team, and the full GPU inventory. Public product image from devtron.ai, with sample data." >}}
+{{< figure src="/images/work/gpu-fleet.webp" alt="GPU fleet dashboard showing total, allocated, used and available GPUs, utilization charts and a GPU inventory by type" caption="The fleet view turns a capacity argument into a number. Public product image from devtron.ai, with sample data." >}}
 
 ## What I left out
 
-I did not build a new GPU scheduler.
-Open-source schedulers already solve placement well.
-The platform builds on them, and the product effort went where teams actually waited: access, policy and deployment.
+A new GPU scheduler.
+Open-source schedulers already place work well, so the effort went where teams waited: access, policy and deployment.
 
-Multi-cluster support and finer access controls came after the first version.
-The first version had to prove one thing: that teams could serve themselves inside rules the infra team trusted.
-
-{{< figure src="/images/work/gpu-pipeline.webp" alt="ML pipeline graph with pre-process, train and evaluate steps, run history and input parameters" caption="Training pipelines run from the same interface, with run history. Public product image from devtron.ai, with sample data." >}}
+{{< figure src="/images/work/gpu-pipeline.webp" alt="ML pipeline graph with pre-process, train and evaluate steps, run history and input parameters" caption="Training pipelines run from the same interface. Public product image from devtron.ai, with sample data." >}}
 
 ## What happened
 
 - GPU tickets fell by more than 80%.
 - Developers got full self-service for notebooks, training and model deploys.
-- GPU utilization and allocation improved by 23% on average, because quotas and sharing freed GPUs that sat idle.
-
-## What I learned
-
-Self-service is a policy problem first and a UI problem second.
-AI teams wanted speed. Infra teams wanted control.
-The product worked when one feature gave both: the infra team writes the rule once, and every request after that is instant.
+- GPU utilization and allocation improved by 23% on average.

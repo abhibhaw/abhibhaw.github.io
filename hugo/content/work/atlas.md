@@ -24,56 +24,47 @@ links:
   - { label: "Devtron Atlas (AI SRE)", url: "https://devtron.ai/ai-operations/ai-sre" }
   - { label: "Docs: Devtron Intelligence", url: "https://docs.devtron.ai/docs/user-guide/devtron-intelligence" }
   - { label: "Video: AI auto-remediation and rollbacks", url: "https://www.youtube.com/watch?v=LeLAozqTdww" }
+flows:
+  debug:
+    caption: "Atlas starts where the failure is shown, with the context already attached."
+    lanes:
+      - label: "Before"
+        steps:
+          - node: "Deploy fails"
+          - edge: "user digs"
+          - node: "Events, logs, configs"
+            struck: true
+            note: "read by hand, hours"
+          - edge: "or gives up"
+          - node: "Support ticket"
+      - label: "After"
+        steps:
+          - node: "Deploy fails"
+          - edge: "user clicks Explain"
+          - node: "Atlas"
+            note: "reads events, logs and service context"
+          - edge: "about a minute"
+          - node: "Cause and fix"
+            note: "a person decides"
 ---
 
-## The problem
+## How it works
 
-Kubernetes tells you that something failed.
-It rarely tells you why.
+Kubernetes says that something failed.
+It rarely says why.
 
-A user who saw "Degraded" or "Deployment failed" had to dig.
-They opened pod events, read container logs and compared configs.
-Experienced engineers knew where to look. Most users did not.
-Many opened a support ticket and waited for someone who did.
+{{< flow "debug" >}}
 
-The time cost was hours per incident.
-The hidden cost was trust: a platform that fails without a reason feels unsafe to deploy on.
+{{< figure src="/images/work/atlas-explain-status.webp" alt="Application details page with a Degraded status, a failed deployment and an Explain button" caption="The entry point is the failure itself. Public image from Devtron docs." >}}
 
-## What I decided
-
-**Explain the failure where it happens.**
-Atlas sits on the failure itself.
-On a degraded app or a failing pod, the user clicks "Explain".
-They do not copy logs into a chat window.
-
-{{< figure src="/images/work/atlas-explain-status.webp" alt="Application details page with a Degraded status, a failed deployment and an Explain button" caption="The entry point is the failure: a degraded app with a failed deployment, and an Explain button. Public image from Devtron docs." >}}
-
-**Give the cause, not a log summary.**
-Atlas reads the events, the logs and the service context together.
-It answers in plain words: what failed, the likely cause, and what to try.
-Users rate each answer, so we could see where it was wrong.
-
-{{< figure src="/images/work/atlas-ai-analysis.webp" alt="AI Analysis panel explaining that a pod failed due to DeadlineExceeded, with container details and possible causes" caption="The analysis names the cause and the likely fixes, with feedback buttons. Public image from Devtron docs." >}}
+{{< figure src="/images/work/atlas-ai-analysis.webp" alt="AI Analysis panel explaining that a pod failed due to DeadlineExceeded, with container details and possible causes" caption="The answer names the cause and likely fixes. Users rate each answer. Public image from Devtron docs." >}}
 
 ## What I left out
 
-**No automatic fixes in the first version.**
-An assistant that changes production on its own needs trust it has not earned yet.
-So version one explained and suggested, and a person decided.
-Automated fixes came later, as runbooks that a person approves, with an audit log.
-
-**No model of our own.**
-Enterprises already had approved LLM providers.
-Atlas lets them bring their own model, which removed a security review from every sale.
+- **Automatic fixes.** Version one explained and suggested. Approved runbooks with an audit log came later.
+- **A model of our own.** Teams bring the LLM provider they already approved.
 
 ## What happened
 
-- Time to find the root cause fell from hours to about a minute.
-- Time to recover fell from hours to minutes.
-- Atlas became the base for Devtron's later AI operations work, including approved runbooks and an AI SRE agent.
-
-## What I learned
-
-The value was not the model.
-It was the placement: the answer appears at the moment of failure, with the context already attached.
-The same model in a separate chat window would have saved far less time.
+- Root-cause time fell from hours to about a minute.
+- Recovery time fell from hours to minutes.

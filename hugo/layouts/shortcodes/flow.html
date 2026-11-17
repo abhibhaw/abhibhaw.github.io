@@ -1,0 +1,21 @@
+{{- /* Usage: {{< flow "name" >}}. Data: page front matter flows.<name>: caption, lanes[{label, steps[{node|edge, struck?, note?}]}]. */ -}}
+{{- $name := .Get 0 }}
+{{- $f := index .Page.Params.flows $name }}
+{{- if not $f }}{{ errorf "flow %q not found in %s" $name .Page.File.Path }}{{ end }}
+<figure class="flow" role="group" aria-label="{{ $f.caption }}">
+  {{- range $f.lanes }}
+  <div class="lane{{ with .tone }} {{ . }}{{ end }}">
+    {{- with .label }}<span class="lane-label">{{ . }}</span>{{ end }}
+    <ol>
+      {{- range .steps }}
+      {{- if .edge }}
+      <li class="edge"><span>{{ .edge }}</span></li>
+      {{- else }}
+      <li class="node">{{ if .struck }}<del class="was"><span class="vh">removed: </span>{{ .node }}</del>{{ else }}<b>{{ .node }}</b>{{ end }}{{ with .note }}<small>{{ . }}</small>{{ end }}</li>
+      {{- end }}
+      {{- end }}
+    </ol>
+  </div>
+  {{- end }}
+  <figcaption>{{ $f.caption }}</figcaption>
+</figure>

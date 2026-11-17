@@ -18,62 +18,65 @@ facts:
     text: "Diagnosis, prescribing or dose changes, ever. No app to install, no public signup, no clinician dashboard yet."
   - label: "Status"
     text: "In development. Not live with members. Doctor and legal review are open."
+flows:
+  safety:
+    caption: "Safety runs as code around the model. A red flag never reaches the model."
+    lanes:
+      - label: "Every message, call turn and reading"
+        steps:
+          - node: "Message"
+          - edge: "checked first"
+          - node: "Red-flag rules"
+            note: "fixed, not a model"
+          - edge: "no flag"
+          - node: "Model"
+            note: "no tool can change a dose"
+          - edge: "drafts"
+          - node: "Output guard"
+            note: "blocks unsafe drafts"
+          - edge: "safe"
+          - node: "Reply"
+      - label: "When a rule fires"
+        steps:
+          - node: "Red-flag rules"
+          - edge: "flag"
+          - node: "Fixed protocol"
+            note: "approved text, no model"
+          - edge: "sent at once"
+          - node: "Reply"
 ---
 
 ## Who it is for
 
-Picture Kamla ji.
-She is in her sixties, lives in a North Indian city, and manages diabetes, blood pressure and thyroid.
-She takes six tablets a day.
-She reads a little Hindi and prefers to speak.
-Her son lives in another city and reminds her on the phone.
-
-When he forgets, she forgets.
-Her readings go unrecorded, and her doctor sees a gap.
+Kamla ji is in her sixties and takes six tablets a day.
+When her son forgets to remind her, she forgets, and her doctor sees a gap.
 
 ## The decisions
 
-**Voice first, on WhatsApp.**
-She already uses WhatsApp every day.
-So Sakhi needs no app and no forms.
-It speaks Hindi, keeps text short, and uses buttons for yes and no.
+| Decision | Because |
+|---|---|
+| Voice first, on WhatsApp | She uses WhatsApp daily and prefers to speak. No app, no forms. |
+| Sakhi calls first | She will not open an app. Sakhi reaches out on its own schedule. |
+| One care plan | Diet advice must work for all her conditions at once. |
+| A contact budget | At most 3 messages and 1 call a day, with quiet hours. |
+| "Health saathi", never "advisor" | "Advisor" can suggest a medical licence. Sakhi never claims to be human. |
 
-**Sakhi calls first.**
-Most health apps wait for the user to open them.
-Kamla ji will not.
-Sakhi runs on its own schedule and reaches out, so she engages without her family pushing her.
-
-**One plan, not one app per disease.**
-Diet advice must work for diabetes, blood pressure and thyroid at the same time.
-So Sakhi keeps one care plan across all her conditions.
-
-**A contact budget.**
-Too many messages feel like nagging.
-By default Sakhi sends at most 3 messages and 1 call a day, with quiet hours.
-
-**Careful words.**
-Sakhi calls itself a "health saathi", not an "advisor", because "advisor" can suggest a medical licence.
-It never claims to be human.
-
-## Safety is code, not a prompt
+## Safety is code
 
 In health, one unsafe reply ends trust.
 So safety does not depend on the model behaving well.
 
-- **Before the model:** fixed red-flag rules check every message, every call turn and every reading. A dangerous reading triggers a fixed protocol, with no model involved.
-- **After the model:** an output check blocks unsafe drafts and sends an approved message instead.
-- **No dangerous tools:** the model cannot change thresholds or doses. It has no tool that can.
-- **Fail closed:** if a check fails, Sakhi does the safe thing.
-- **Doctor sign-off:** every clinical text needs a doctor's approval, tied to the exact text.
+{{< flow "safety" >}}
 
-In the first runs with a real model, the safety checks passed all 52 red-team cases with no guardrail violations.
-That is a safety result, not a quality result.
-The same tests passed while the product still sounded scripted.
-I wrote about that gap: [why our health agent sounded scripted](/notes/why-our-health-agent-sounded-scripted/).
+If a check fails, Sakhi does the safe thing.
+Every clinical text needs a doctor's approval, tied to the exact text.
+
+In the first runs with a real model, the checks passed all 52 red-team cases with no guardrail violations.
+The same tests passed while Sakhi still sounded scripted, so I am [changing how it is tested](/notes/why-our-health-agent-sounded-scripted/).
 
 ## What is left
 
 - Doctor review of every clinical text.
 - Legal review.
 - A dry run with real members.
-- Tests that measure judgment, not script compliance.
+- Tests that measure judgment.

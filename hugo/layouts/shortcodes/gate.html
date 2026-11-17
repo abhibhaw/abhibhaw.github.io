@@ -1,0 +1,12 @@
+{{- /* Usage: {{< gate >}}. Data: front matter gate: caption, rows[{name, target, note}]. Draws targets only, never results. */ -}}
+{{- $g := .Page.Params.gate }}
+<figure class="gate" role="group" aria-label="{{ $g.caption }}">
+  <div class="gate-scale" aria-hidden="true"><span>0%</span><span>50%</span><span>100%</span></div>
+  {{- range $g.rows }}
+  <div class="gate-row">
+    <span class="gate-name">{{ .name }}<small>{{ .note }}</small></span>
+    <span class="gate-bar"><span class="pass" style="left:{{ .target }}%"></span><span class="tick" style="left:{{ .target }}%"><b>≥{{ .target }}%</b></span></span>
+  </div>
+  {{- end }}
+  <figcaption>{{ $g.caption }}</figcaption>
+</figure>

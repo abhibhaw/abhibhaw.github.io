@@ -26,71 +26,75 @@ links:
   - { label: "Docs: Deployment Window", url: "https://docs.devtron.ai/docs/user-guide/app-management/policies/deployment-window" }
   - { label: "Blog: approval-based deployments", url: "https://devtron.ai/blog/approval-based-deployments-on-kubernetes/" }
   - { label: "Docs: Devtron Freemium", url: "https://docs.devtron.ai/docs/setup/install/devtron-freemium" }
+flows:
+  trial:
+    caption: "The trial now leads to one goal: the user's own app, deployed."
+    lanes:
+      - label: "Before"
+        steps:
+          - node: "Sign up"
+          - edge: "then"
+          - node: "Connect cluster, set up pipeline, find next step"
+            struck: true
+            note: "most users stopped here"
+          - edge: "few reach"
+          - node: "First deploy"
+      - label: "After"
+        steps:
+          - node: "Sign up"
+          - edge: "guided path"
+          - node: "First deploy"
+            note: "users who got here in 20 min stayed 3x more"
+          - edge: "then"
+          - node: "Paid"
+            note: "33% faster"
+  approvals:
+    caption: "Approvals attach to the release path teams already use."
+    lanes:
+      - label: "Production release"
+        steps:
+          - node: "Deploy or config change"
+          - edge: "needs"
+          - node: "Approval policy"
+            note: "1 to 6 approvers, people or groups"
+          - edge: "then checks"
+          - node: "Deployment window"
+            note: "blocked or maintenance period"
+          - edge: "releases to"
+          - node: "Production"
+      - label: "Emergency"
+        steps:
+          - node: "Named person"
+          - edge: "acts, and it is recorded"
+          - node: "Production"
 ---
 
 Devtron is an open-source platform that companies use to deploy and run software on Kubernetes.
-This case covers two problems in the core product: one in growth, one in enterprise adoption.
+This case covers one growth problem and one enterprise problem.
 
 ## Part 1: The trial
 
-### The problem
+Users who deployed their own app within about 20 minutes stayed 3 times more.
+Most never got there.
 
-Many people started a trial. Few reached the moment where Devtron was useful: their own app, deployed.
+{{< flow "trial" >}}
 
-The data showed a clear split.
-Users who deployed an app within about 20 minutes stayed 3 times more than users who did not.
-Most users never got there.
-They stopped at setup: connecting a cluster, configuring a pipeline, finding the next step.
+I left out new trial features.
+Users left before they saw the features we already had.
 
-### What I decided
+{{< figure src="/images/work/freemium-welcome.webp" alt="Devtron welcome screen with three starting paths: deploy a Helm chart, connect a cluster, create an app" caption="Onboarding today starts from direct paths to a first deploy. Public image from Devtron docs." >}}
 
-The trial had one job: get the user to a first deploy, fast.
-I rebuilt it around a guided path to that deploy.
-Every step that did not lead there moved out of the way.
+Result: 4x inbound leads, and 33% faster conversion to paid.
 
-{{< figure src="/images/work/freemium-welcome.webp" alt="Devtron welcome screen with three starting paths: deploy a Helm chart, connect a cluster, create an app" caption="Today's onboarding starts from three direct paths to a first deploy. Public image from Devtron docs." >}}
+## Part 2: Approvals
 
-### What I left out
-
-The easy answer was to add more features to the trial.
-I did not, because the data said users left before they saw the features we already had.
-
-### What happened
-
-- Inbound leads grew 4x.
-- Users converted to paid 33% faster.
-
-## Part 2: Approvals for regulated enterprises
-
-### The problem
-
-In more than 15 interviews with banks and other regulated companies, one blocker came up again and again.
+In more than 15 interviews, regulated companies said the same thing.
 Their rules required sign-off before any change reached production.
-Without that, their compliance teams could not approve Devtron.
 
-### What I decided
+{{< flow "approvals" >}}
 
-I shipped multi-level approvals and deployment policies.
+{{< figure src="/images/work/approval-profile.webp" alt="Create approval profile screen requiring approvals from specific users before deploying to banking-prod" caption="An approval profile for production. Public image from Devtron docs." >}}
 
-- **Approval policies.** A team requires one or more approvals, from specific people or groups, before a deploy or a config change reaches production.
-- **Deployment windows.** Teams block deploys during risky periods, or allow them only in a maintenance window.
-- **Exceptions.** Named people can act in an emergency, and the system records it.
+{{< figure src="/images/work/deploy-window-blocked.webp" alt="Dialog saying deployment is blocked, with time until the restriction ends and the users allowed to act" caption="A deployment window says who may still act, and for how long. Public image from Devtron docs." >}}
 
-{{< figure src="/images/work/approval-profile.webp" alt="Create approval profile screen requiring approvals from specific users before deploying to banking-prod" caption="An approval profile: changes to production need sign-off from specific approvers. Public image from Devtron docs." >}}
-
-{{< figure src="/images/work/deploy-window-blocked.webp" alt="Dialog saying deployment is blocked, with time until the restriction ends and the users allowed to act" caption="A deployment window blocks deploys and says exactly who may still act, and for how long. Public image from Devtron docs." >}}
-
-### What I left out
-
-I did not build a separate workflow engine.
-Approvals attach to the release flow teams already use, so adopting them changed nothing else.
-
-### What happened
-
-Approvals became a key reason regulated enterprises chose Devtron.
-
-## What I learned
-
-Both problems looked like missing features. Neither was.
-The trial needed fewer steps, not more features.
-Enterprises needed control, which let them say yes.
+Result: approvals became a key reason regulated enterprises chose Devtron.
