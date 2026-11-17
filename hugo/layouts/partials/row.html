@@ -1,9 +1,9 @@
-{{- /* One row in an index of cases or projects. Context: page. */ -}}
-<li><a class="row" href="{{ .RelPermalink }}">
-  <div><span class="k">{{ .Params.kicker }}</span><h3>{{ .Title }}</h3></div>
-  <div class="summary"><p>{{ .Params.summary }}</p></div>
-  <div class="result">
-    {{- if eq .Params.status "in development" }}<span class="status">{{ or .Params.status_note "In development" }}</span>
-    {{- else }}{{ with .Params.headline_metric }}<span class="fig">{{ partial "correction.html" . }}</span>{{ .label }}{{ end }}{{ end }}
-  </div>
+{{- /* One case or project as a part row inside its family field. Context: page. */ -}}
+<li><a class="part" href="{{ .RelPermalink }}">
+  <span class="name"><h4>{{ .Title }}</h4>{{ with .Params.tools }}<span class="tools">{{ range . }}<img src="{{ printf "icons/%s.svg" .icon | relURL }}" alt="{{ .name }}" title="{{ .name }}" width="20" height="20" loading="lazy">{{ end }}</span>{{ end }}</span>
+  <p class="summary">{{ .Params.summary }}</p>
+  <span class="spec">
+    {{- if eq .Params.status "in development" }}<b class="status">In development</b>{{ or .Params.status_note "" }}
+    {{- else }}{{ with .Params.headline_metric }}<b>{{ partial "correction.html" . }}</b>{{ .label }}{{ end }}{{ end -}}
+  </span>
 </a></li>

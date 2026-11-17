@@ -1,5 +1,7 @@
 ---
 title: "GPU Platform: GPUs without tickets"
+org: "devtron"
+tools: [{ icon: "kubernetes", name: "Kubernetes" }]
 kicker: "Devtron · AI infrastructure"
 weight: 10
 summary: "AI teams waited days for a GPU and weeks to ship a model. I defined a self-service GPU platform where infra teams set the rules once and AI teams move on their own."
@@ -56,14 +58,14 @@ Both came from one team doing every step by hand.
 
 {{< flow "access" >}}
 
-{{< figure src="/images/work/gpu-fleet.webp" alt="GPU fleet dashboard showing total, allocated, used and available GPUs, utilization charts and a GPU inventory by type" caption="The fleet view turns a capacity argument into a number. Public product image from devtron.ai, with sample data." >}}
+{{< figure src="/images/work/gpu-fleet.webp" alt="GPU fleet dashboard showing total, allocated, used and available GPUs, utilization charts and a GPU inventory by type" >}}
 
 ## What I left out
 
 A new GPU scheduler.
 Open-source schedulers already place work well, so the effort went where teams waited: access, policy and deployment.
 
-{{< figure src="/images/work/gpu-pipeline.webp" alt="ML pipeline graph with pre-process, train and evaluate steps, run history and input parameters" caption="Training pipelines run from the same interface. Public product image from devtron.ai, with sample data." >}}
+{{< figure src="/images/work/gpu-pipeline.webp" alt="ML pipeline graph with pre-process, train and evaluate steps, run history and input parameters" >}}
 
 ## What happened
 

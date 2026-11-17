@@ -1,23 +1,36 @@
 {{- /* Case study, shared by work/ and projects/. */ -}}
-<div class="wrap">
-  <header class="page-head">
-    <p class="crumb"><a href="{{ .Parent.RelPermalink }}">{{ .Parent.Title }}</a> / {{ .Params.kicker }}{{ if eq .Params.status "in development" }} / <span class="state">In development</span>{{ end }}</p>
-    <h1>{{ .Title }}</h1>
-    {{- with .Params.summary }}<p class="standfirst">{{ . }}</p>{{ end }}
-    <p class="byline">{{ with .Params.role }}<span><b>Role</b>{{ . }}</span>{{ end }}{{ with .Params.when }}<span><b>When</b>{{ . }}</span>{{ end }}</p>
-  </header>
-  {{- with .Params.metrics }}
-  <div class="figures">{{ range . }}<div><span class="n">{{ partial "correction.html" . }}</span><span class="l">{{ .label }}</span></div>{{ end }}</div>
-  {{- end }}
-  {{- with .Params.facts }}
-  <dl class="facts">{{ range . }}<dt>{{ .label }}</dt><dd>{{ .text | markdownify }}</dd>{{ end }}</dl>
-  {{- end }}
-  <div class="case-body">
-    <article class="prose">{{ .Content }}</article>
-    <aside class="margin">
-      {{- with .Params.links }}<div><h4>Public sources</h4><ul>{{ range . }}<li><a href="{{ .url }}" rel="noopener">{{ .label }}</a></li>{{ end }}</ul></div>{{ end }}
-      {{- with .NextInSection }}<div><h4>Next case</h4><p><a href="{{ .RelPermalink }}">{{ .Title }}</a></p></div>{{ end }}
-      <div><h4>Contact</h4><p><a href="mailto:{{ site.Params.email }}">{{ site.Params.email }}</a></p></div>
-    </aside>
+{{- $org := .Params.org }}
+{{- $orgName := index (dict "devtron" "Devtron" "bharatpe" "BharatPe" "independent" "Independent") $org }}
+<section class="hero" data-enter data-org="{{ $org }}">
+  <div class="wrap">
+    <p class="band"><span><a href="{{ .Parent.RelPermalink }}">{{ .Parent.Title }}</a> · {{ $orgName }}{{ with .Params.role }} · {{ . }}{{ end }}</span><span>{{ .Params.when }}{{ if eq .Params.status "in development" }} · In development{{ end }}</span></p>
+    <div class="case-top">
+      <div class="page-hero">
+        <h1>{{ .Title }}</h1>
+        {{- with .Params.summary }}<p class="t-lead">{{ . }}</p>{{ end }}
+      </div>
+      <div class="specs">
+        <h2>Key characteristics</h2>
+        {{- with .Params.metrics }}
+        {{- range . }}<div><span class="n">{{ partial "correction.html" . }}</span><span class="l">{{ .label }}</span></div>{{ end }}
+        {{- else }}
+        <div><span class="status">In development</span><span class="l">{{ .Params.status_note }}</span></div>
+        {{- end }}
+      </div>
+    </div>
+    {{- with .Params.facts }}
+    <dl class="spec-table">{{ range . }}<dt>{{ .label }}</dt><dd>{{ .text | markdownify }}</dd>{{ end }}</dl>
+    {{- end }}
   </div>
-</div>
+</section>
+<section class="body" data-org="{{ $org }}">
+  <div class="wrap">
+    <article class="prose">{{ .Content }}</article>
+    <div class="case-end">
+      {{- with .Params.links }}<div><h2>Public sources</h2><ul>{{ range . }}<li><a href="{{ .url }}" rel="noopener">{{ .label }}</a></li>{{ end }}</ul></div>{{ end }}
+      {{- with .NextInSection }}<div><h2>Next</h2><ul><li><a href="{{ .RelPermalink }}">{{ .Title }}</a></li></ul></div>{{ end }}
+      <div><h2>Contact</h2><ul><li><a href="mailto:{{ site.Params.email }}">{{ site.Params.email }}</a></li></ul></div>
+    </div>
+    {{- if findRE `/images/work/` .RawContent }}<p class="credit">Product images: public Devtron docs and devtron.ai, some with sample data.</p>{{ end }}
+  </div>
+</section>

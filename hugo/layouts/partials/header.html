@@ -1,13 +1,21 @@
-<header class="masthead">
-  <div class="wrap">
-    <a class="brand" href="{{ "/" | relURL }}">{{ site.Title }}</a>
-    <nav class="nav" aria-label="Main">
+<header class="nav">
+  <div class="wrap nav__bar">
+    <a class="skip-link" href="#top">Skip to content</a>
+    <a class="nav__logo" href="{{ "/" | relURL }}"><img src="{{ "images/portrait.webp" | relURL }}" alt="" width="28" height="28">{{ site.Title }}</a>
+    <nav class="nav__links" aria-label="Main">
       {{- $cur := . }}
-      {{- range site.Menus.main }}
+      {{- range site.Menus.main }}{{ if ne .Name "Resume" }}
       {{- $active := false }}
       {{- with .Page }}{{ if or (eq . $cur) (and (ne .Section "") (eq .Section $cur.Section)) }}{{ $active = true }}{{ end }}{{ end }}
-      <a href="{{ .URL }}"{{ if $active }} aria-current="page"{{ end }}>{{ .Name }}</a>
-      {{- end }}
+      <div class="nav__item"><a class="nav__link" href="{{ .URL }}"{{ if $active }} aria-current="page"{{ end }}>{{ .Name }}</a></div>
+      {{- end }}{{ end }}
     </nav>
+    <div class="nav__actions">
+      <a class="nav__link" href="{{ "/resume/" | relURL }}">Resume</a>
+      <a class="btn btn--primary btn--sm" href="mailto:{{ site.Params.email }}">Email me</a>
+    </div>
+    <button class="nav__toggle" type="button" aria-expanded="false" aria-label="Menu">
+      <svg width="18" height="18" viewBox="0 0 18 18" aria-hidden="true"><path d="M2 5h14M2 13h14" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+    </button>
   </div>
 </header>

@@ -1,11 +1,22 @@
 {{ define "main" }}
-<div class="wrap page-end">
-  <header class="page-head">
-    <h1>{{ .Title }}</h1>
-    {{- with .Params.lede }}<p class="standfirst">{{ . }}</p>{{ end }}
-  </header>
-  <div class="section" style="padding-top:40px">
-    <ul class="rows" style="border-top:2px solid var(--ink)">{{ range .Pages.ByWeight }}{{ partial "row.html" . }}{{ end }}</ul>
+<section class="hero" data-enter>
+  <div class="wrap">
+    <div class="page-hero">
+      <h1>{{ .Title }}</h1>
+      {{- with .Params.lede }}<p class="t-lead">{{ . }}</p>{{ end }}
+    </div>
   </div>
-</div>
+</section>
+<section class="body">
+  <div class="wrap">
+    {{- $pages := .Pages.ByWeight }}
+    {{- range $org := slice "devtron" "bharatpe" "independent" }}
+    {{- with where $pages "Params.org" $org }}
+    <div class="family field" data-org="{{ $org }}">
+      <div class="field-head"><h3>{{ index (dict "devtron" "Devtron" "bharatpe" "BharatPe" "independent" "Independent") $org }}</h3></div>
+      <ul class="parts">{{ range . }}{{ partial "row.html" . }}{{ end }}</ul>
+    </div>
+    {{- end }}{{ end }}
+  </div>
+</section>
 {{ end }}

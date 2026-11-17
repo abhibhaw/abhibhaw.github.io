@@ -2,9 +2,10 @@
 {{- $name := .Get 0 }}
 {{- $f := index .Page.Params.flows $name }}
 {{- if not $f }}{{ errorf "flow %q not found in %s" $name .Page.File.Path }}{{ end }}
+<p class="flow-lead">{{ $f.caption }}</p>
 <figure class="flow" role="group" aria-label="{{ $f.caption }}">
   {{- range $f.lanes }}
-  <div class="lane{{ with .tone }} {{ . }}{{ end }}">
+  <div class="lane{{ if where .steps "struck" true }} is-before{{ end }}">
     {{- with .label }}<span class="lane-label">{{ . }}</span>{{ end }}
     <ol>
       {{- range .steps }}
@@ -17,5 +18,4 @@
     </ol>
   </div>
   {{- end }}
-  <figcaption>{{ $f.caption }}</figcaption>
 </figure>

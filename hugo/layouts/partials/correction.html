@@ -1,3 +1,2 @@
-{{- /* A figure, with the old value struck through when one exists. Mono only for values with digits. Context: dict with before, value. */ -}}
-{{- define "_fv" }}{{ if findRE "[0-9]" . }}<span class="fig">{{ . }}</span>{{ else }}{{ . }}{{ end }}{{ end -}}
-{{- with .before }}<del class="was"><span class="vh">was </span>{{ template "_fv" . }}</del> <ins class="now"><span class="vh">now </span>{{ template "_fv" $.value }}</ins>{{ else }}{{ template "_fv" .value }}{{ end -}}
+{{- /* A value, with the removed value struck through when one exists. Context: dict with before, value. */ -}}
+{{- with .before }}<del class="was"><span class="vh">was </span>{{ . }}</del> <ins class="now"><span class="vh">now </span>{{ $.value }}</ins>{{ else }}{{ .value }}{{ end -}}

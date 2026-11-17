@@ -1,57 +1,98 @@
 {{ define "main" }}
 {{- $p := .Params }}
-<div class="wrap">
-  <section class="lead">
-    <h1>{{ $p.hero }}</h1>
-    <p class="standfirst">{{ $p.lede }}</p>
-    <p class="links"><a href="#work">The work</a><a href="mailto:{{ site.Params.email }}">{{ site.Params.email }}</a></p>
+{{- $work := (site.GetPage "/work").Pages.ByWeight }}
+{{- $projects := (site.GetPage "/projects").Pages.ByWeight }}
+<section class="hero" data-enter>
+  <div class="wrap">
+    <div class="hero-text">
+      <div class="hero-copy">
+        <p class="titleblock"><img src="{{ "images/portrait.webp" | relURL }}" alt="Illustrated portrait of Abhibhaw Asthana" width="56" height="56" fetchpriority="high"><b>{{ site.Params.author }}</b><span>Product manager, Devtron · Gurgaon, India · Rev 2026</span></p>
+        <h1>{{ $p.hero }}</h1>
+        <p class="t-lead">{{ $p.lede }}</p>
+        <p class="hero-fact"><b>Latest result:</b> GPU tickets at Devtron fell by more than 80% after AI teams got self-service GPUs.</p>
+        <div class="btn-row">
+          <a class="btn btn--primary" href="mailto:{{ site.Params.email }}">Email me<svg class="m-arrow" viewBox="0 0 12 12" aria-hidden="true"><path class="m-arrow__stem" d="M1 6h8"/><path class="m-arrow__head" d="M4.5 2.5 8 6l-3.5 3.5"/></svg></a>
+          <a class="btn btn--secondary" href="#work">See the case studies</a>
+        </div>
+      </div>
+      <div class="hero-visual" data-enter-media>
+        <figure class="chart" aria-labelledby="chart-h">
+          <p class="chart-title" id="chart-h">Wait time, before and after</p>
+          <p class="sub">{{ $p.pattern_title }}</p>
+          <div class="axis" aria-hidden="true"><span></span><span>Minutes</span><span>Hours</span><span>Days</span><span>Weeks</span></div>
+          <div class="series">
+            {{- range $p.ledger }}{{ if .chart }}
+            <div data-org="{{ .org }}">
+              <b>{{ .product }}<small>{{ .what }}</small></b>
+              <div class="track" role="img" aria-label="{{ .product }}: {{ .before }} before, {{ .after }} after">
+                <span class="bar before{{ if lt .chart.before 30 }} short{{ end }}" style="--w: {{ .chart.before }}%"><span>{{ .before }}</span></span>
+                <span class="bar after" style="--w: {{ .chart.after }}%"><span>{{ .after }}</span></span>
+              </div>
+            </div>
+            {{- end }}{{ end }}
+          </div>
+          <p class="key"><span class="k-before"><i></i>Before, struck</span><span data-org="devtron"><i></i>After, Devtron</span><span data-org="bharatpe"><i></i>After, BharatPe</span></p>
+        </figure>
+      </div>
+    </div>
+  </div>
+</section>
 
-    <table class="ledger">
-      <caption>{{ $p.pattern_title }}</caption>
-      <thead><tr><th scope="col">Who waited</th><th scope="col">For what</th><th scope="col">Before</th><th scope="col">After</th><th scope="col">Product</th></tr></thead>
-      <tbody>
-        {{- range $p.ledger }}
-        <tr>
-          <td class="who">{{ .who }}</td>
-          <td class="what">{{ .what }}</td>
-          {{- if .after }}
-          <td class="before"><del class="was"><span class="vh">was </span>{{ .before }}</del></td>
-          <td class="after"><ins class="now"><span class="vh">now </span>{{ .after }}</ins></td>
-          {{- else }}
-          <td class="before plain">{{ .before }}</td>
-          <td class="after pending">{{ .pending }}</td>
-          {{- end }}
-          <td class="where"><a href="{{ .link | relURL }}">{{ .product }}</a></td>
-        </tr>
-        {{- end }}
-      </tbody>
-    </table>
-  </section>
+<section id="work" aria-labelledby="work-h">
+  <div class="wrap">
+    <div class="section-head section-head--split">
+      <h2 id="work-h">Products I shipped at Devtron. <span class="muted">Product Manager, 2024 - now.</span></h2>
+      <a class="link" href="{{ "/work/" | relURL }}">All case studies</a>
+    </div>
+    <div class="field" data-org="devtron">
+      <div class="field-head"><h3>Devtron</h3><p>Open-source platform to deploy and run software on Kubernetes</p></div>
+      <ul class="parts">{{ range where $work "Params.org" "devtron" }}{{ partial "row.html" . }}{{ end }}</ul>
+    </div>
+  </div>
+</section>
 
-  <section class="section" id="work">
-    <div class="section-head"><h2>Work</h2><a href="{{ "/work/" | relURL }}">All case studies</a></div>
-    <ul class="rows">{{ range (site.GetPage "/work").Pages.ByWeight }}{{ partial "row.html" . }}{{ end }}</ul>
-  </section>
+<section style="--h: 2" data-moment="pinned-chapters" aria-labelledby="method-h">
+  <div class="wrap mo-pc__grid">
+    <div class="mo-pc__text">
+      <h2 id="method-h">Three rules behind each product</h2>
+      <ol class="mo-pc__steps">
+        <li class="mo-pc__step">
+          <h3>Find where people wait</h3>
+          <p><span class="mo-pc__p-in">AI teams at Devtron waited days for a GPU, while costly GPUs sat idle. The fleet view made the gap a number.</span></p>
+          <figure class="mo-pc__visual"><img src="{{ "images/work/gpu-fleet.webp" | relURL }}" alt="GPU fleet dashboard with total, allocated, used and available GPUs" width="1334" height="870" loading="lazy"></figure>
+        </li>
+        <li class="mo-pc__step">
+          <h3>Write down what not to build</h3>
+          <p><span class="mo-pc__p-in">Atlas shipped without automatic fixes. It explains why a deploy failed and suggests a fix, and a person decides.</span></p>
+          <figure class="mo-pc__visual"><img src="{{ "images/work/atlas-ai-analysis.webp" | relURL }}" alt="Atlas analysis panel explaining a failed pod and its likely causes" width="1600" height="888" loading="lazy"></figure>
+        </li>
+        <li class="mo-pc__step">
+          <h3>Put the rules in code</h3>
+          <p><span class="mo-pc__p-in">Approval rules attach to the deploy path teams already use. The platform enforces them on every release.</span></p>
+          <figure class="mo-pc__visual"><img src="{{ "images/work/approval-profile.webp" | relURL }}" alt="Approval profile requiring sign-off from named users before a production deploy" width="1431" height="792" loading="lazy"></figure>
+        </li>
+      </ol>
+      <p class="more-links"><a class="link" href="{{ "/how-i-work/" | relURL }}">The full method</a>{{ with first 1 (where site.RegularPages "Section" "notes").ByDate.Reverse }}{{ range . }}<a class="link" href="{{ .RelPermalink }}">Latest note: {{ .Title }}</a>{{ end }}{{ end }}</p>
+    </div>
+    <div class="mo-pc__visuals frame"></div>
+  </div>
+</section>
 
-  <section class="section">
-    <div class="section-head"><h2>Building now</h2><a href="{{ "/projects/" | relURL }}">All projects</a></div>
-    <p class="section-note">Independent products I am building in my free time. None is live yet.</p>
-    <ul class="rows">{{ range (site.GetPage "/projects").Pages.ByWeight }}{{ partial "row.html" . }}{{ end }}</ul>
-  </section>
+<section id="building" aria-labelledby="building-h">
+  <div class="wrap">
+    <div class="section-head section-head--split">
+      <h2 id="building-h">BharatPe and independent products</h2>
+      <a class="link" href="{{ "/projects/" | relURL }}">All projects</a>
+    </div>
+    <div class="family field" data-org="bharatpe">
+      <div class="field-head"><h3>BharatPe</h3><p>SDE Intern, during B.Tech · 2022 - 2023</p></div>
+      <ul class="parts">{{ range where $work "Params.org" "bharatpe" }}{{ partial "row.html" . }}{{ end }}</ul>
+    </div>
+    <div class="family field" data-org="independent">
+      <div class="field-head"><h3>Building now</h3><p>Independent, in development. Decisions and status, no results yet.</p></div>
+      <ul class="parts">{{ range $projects }}{{ partial "row.html" . }}{{ end }}</ul>
+    </div>
+  </div>
+</section>
 
-  <section class="section">
-    <div class="section-head"><h2>How I work</h2><a href="{{ "/how-i-work/" | relURL }}">The full method</a></div>
-    {{- with site.GetPage "/how-i-work" }}
-    <p class="steps">{{ range $i, $s := .Params.loop }}{{ if $i }}<span aria-hidden="true"> → </span>{{ end }}<b>{{ $s.name }}</b>{{ end }}<span aria-hidden="true"> → </span><span class="muted">back to Discover.</span></p>
-    <p class="section-note">{{ .Params.lede }}</p>
-    {{- end }}
-  </section>
-
-  {{- with (site.GetPage "/notes").Pages }}
-  <section class="section page-end">
-    <div class="section-head"><h2>Notes</h2><a href="{{ "/notes/" | relURL }}">All notes</a></div>
-    {{ partial "note-list.html" (first 4 .ByDate.Reverse) }}
-  </section>
-  {{- end }}
-</div>
 {{ end }}

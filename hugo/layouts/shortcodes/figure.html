@@ -1,0 +1,5 @@
+{{- /* Figure without a caption (credits go in one line per page). Adds intrinsic size and lazy loading. */ -}}
+{{- $src := .Get "src" }}
+{{- $w := 0 }}{{ $h := 0 }}
+{{- with fileExists (printf "static%s" $src) }}{{ with imageConfig (printf "static%s" $src) }}{{ $w = .Width }}{{ $h = .Height }}{{ end }}{{ end }}
+<figure><img src="{{ $src | relURL }}" alt="{{ .Get "alt" }}"{{ if $w }} width="{{ $w }}" height="{{ $h }}"{{ end }} loading="lazy" decoding="async"></figure>

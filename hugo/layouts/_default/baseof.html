@@ -1,10 +1,11 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" data-type="service" data-radius="soft" data-buttons="solid" data-motion>
 <head>{{ partial "head.html" . }}</head>
 <body>
-<a class="skip" href="#main">Skip to content</a>
 {{ partial "header.html" . }}
-<main id="main">{{ block "main" . }}{{ end }}</main>
+<main id="top"{{ if not .IsHome }} class="doc"{{ end }}>{{ block "main" . }}{{ end }}</main>
 {{ partial "footer.html" . }}
+<script type="module" src="{{ "kit/system.js" | relURL }}"></script>
+<script type="module" src="{{ "kit/motion/motion.js" | relURL }}"></script>
 </body>
 </html>

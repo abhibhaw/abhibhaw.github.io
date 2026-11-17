@@ -1,5 +1,6 @@
 ---
 title: "Peira: AI agents that improve from their own failures"
+tools: [{ icon: "langfuse-icon", name: "Langfuse" }, { icon: "opentelemetry-icon", name: "OpenTelemetry" }]
 kicker: "AI agents · Reliability"
 weight: 30
 status: "in development"

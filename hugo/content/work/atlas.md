@@ -1,5 +1,7 @@
 ---
 title: "Atlas: from hours to a minute"
+org: "devtron"
+tools: [{ icon: "kubernetes", name: "Kubernetes" }]
 kicker: "Devtron · AI assistant"
 weight: 20
 summary: "When a deployment failed, users read raw logs for hours or opened a support ticket. I shipped Atlas, an AI assistant that finds the root cause and suggests a fix."
@@ -55,9 +57,9 @@ It rarely says why.
 
 {{< flow "debug" >}}
 
-{{< figure src="/images/work/atlas-explain-status.webp" alt="Application details page with a Degraded status, a failed deployment and an Explain button" caption="The entry point is the failure itself. Public image from Devtron docs." >}}
+{{< figure src="/images/work/atlas-explain-status.webp" alt="Application details page with a Degraded status, a failed deployment and an Explain button" >}}
 
-{{< figure src="/images/work/atlas-ai-analysis.webp" alt="AI Analysis panel explaining that a pod failed due to DeadlineExceeded, with container details and possible causes" caption="The answer names the cause and likely fixes. Users rate each answer. Public image from Devtron docs." >}}
+{{< figure src="/images/work/atlas-ai-analysis.webp" alt="AI Analysis panel explaining that a pod failed due to DeadlineExceeded, with container details and possible causes" >}}
 
 ## What I left out
 

@@ -1,22 +1,28 @@
 {{ define "main" }}
-<div class="wrap">
-  <header class="article-head">
-    <p class="crumb"><a href="{{ .Parent.RelPermalink }}">Notes</a> / {{ if eq .Params.kind "technical" }}Technical{{ else }}Product{{ end }}</p>
-    <h1>{{ .Title }}</h1>
-    {{- with .Description }}<p class="standfirst">{{ . }}</p>{{ end }}
-    <p class="byline">
-      <span><b>Published</b><time class="fig" datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "2 Jan 2006" }}</time></span>
-      {{- with .Lastmod }}{{ if gt (sub .Unix $.Date.Unix) 86400 }}<span><b>Updated</b><span class="fig">{{ .Format "2 Jan 2006" }}</span></span>{{ end }}{{ end }}
-      <span><b>Reading</b>{{ .ReadingTime }} min</span>
-    </p>
-  </header>
-  {{- if and .Params.toc (gt (len .TableOfContents) 80) }}
-  <details class="toc"><summary>Contents</summary>{{ .TableOfContents }}</details>
-  {{- end }}
-  <article class="prose article-body">{{ .Content }}</article>
-  <nav class="pager" aria-label="More notes">
-    {{- with .NextInSection }}<a href="{{ .RelPermalink }}"><span>Newer</span>{{ .Title }}</a>{{ end }}
-    {{- with .PrevInSection }}<a class="older" href="{{ .RelPermalink }}"><span>Older</span>{{ .Title }}</a>{{ end }}
-  </nav>
-</div>
+<section class="hero" data-enter>
+  <div class="wrap">
+    <div class="page-hero">
+      <h1>{{ .Title }}</h1>
+      {{- with .Description }}<p class="t-lead">{{ . }}</p>{{ end }}
+      <p class="byline">
+        <span><b>Published</b><time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "2 Jan 2006" }}</time></span>
+        {{- with .Lastmod }}{{ if gt (sub .Unix $.Date.Unix) 86400 }}<span><b>Updated</b>{{ .Format "2 Jan 2006" }}</span>{{ end }}{{ end }}
+        <span><b>Reading</b>{{ .ReadingTime }} min</span>
+        <span><b>Type</b><a href="{{ .Parent.RelPermalink }}">{{ if eq .Params.kind "technical" }}Technical note{{ else }}Product note{{ end }}</a></span>
+      </p>
+      {{- if and .Params.toc (gt (len .TableOfContents) 80) }}
+      <details class="toc"><summary>Contents</summary>{{ .TableOfContents }}</details>
+      {{- end }}
+    </div>
+  </div>
+</section>
+<section class="body">
+  <div class="wrap">
+    <article class="prose">{{ .Content }}</article>
+    <nav class="pager" aria-label="More notes">
+      {{- with .NextInSection }}<a href="{{ .RelPermalink }}"><span>Newer</span>{{ .Title }}</a>{{ end }}
+      {{- with .PrevInSection }}<a class="older" href="{{ .RelPermalink }}"><span>Older</span>{{ .Title }}</a>{{ end }}
+    </nav>
+  </div>
+</section>
 {{ end }}

@@ -1,5 +1,7 @@
 ---
 title: "BharatPe: 14 days to 17 minutes"
+org: "bharatpe"
+tools: [{ icon: "mysql-icon", name: "MySQL" }, { icon: "kafka-icon", name: "Kafka" }, { icon: "github-icon", name: "GitHub" }, { icon: "redash", name: "Redash" }, { icon: "jira", name: "Jira" }]
 kicker: "BharatPe · Internal developer platform"
 weight: 50
 summary: "Engineers waited 14 days for a small DevOps team to run database queries and server changes. I built a self-service portal with access rules and audit logs."

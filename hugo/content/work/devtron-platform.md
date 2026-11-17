@@ -1,5 +1,7 @@
 ---
 title: "Devtron Platform: a trial that converts, and approvals enterprises need"
+org: "devtron"
+tools: [{ icon: "kubernetes", name: "Kubernetes" }, { icon: "helm", name: "Helm" }]
 kicker: "Devtron · Growth and enterprise"
 weight: 40
 summary: "Trial users left before they saw value, and regulated enterprises could not adopt us without sign-off before production changes. I fixed both."
@@ -82,7 +84,7 @@ Most never got there.
 I left out new trial features.
 Users left before they saw the features we already had.
 
-{{< figure src="/images/work/freemium-welcome.webp" alt="Devtron welcome screen with three starting paths: deploy a Helm chart, connect a cluster, create an app" caption="Onboarding today starts from direct paths to a first deploy. Public image from Devtron docs." >}}
+{{< figure src="/images/work/freemium-welcome.webp" alt="Devtron welcome screen with three starting paths: deploy a Helm chart, connect a cluster, create an app" >}}
 
 Result: 4x inbound leads, and 33% faster conversion to paid.
 
@@ -93,8 +95,8 @@ Their rules required sign-off before any change reached production.
 
 {{< flow "approvals" >}}
 
-{{< figure src="/images/work/approval-profile.webp" alt="Create approval profile screen requiring approvals from specific users before deploying to banking-prod" caption="An approval profile for production. Public image from Devtron docs." >}}
+{{< figure src="/images/work/approval-profile.webp" alt="Create approval profile screen requiring approvals from specific users before deploying to banking-prod" >}}
 
-{{< figure src="/images/work/deploy-window-blocked.webp" alt="Dialog saying deployment is blocked, with time until the restriction ends and the users allowed to act" caption="A deployment window says who may still act, and for how long. Public image from Devtron docs." >}}
+{{< figure src="/images/work/deploy-window-blocked.webp" alt="Dialog saying deployment is blocked, with time until the restriction ends and the users allowed to act" >}}
 
 Result: approvals became a key reason regulated enterprises chose Devtron.

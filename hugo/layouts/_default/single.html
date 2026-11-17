@@ -1,9 +1,6 @@
 {{ define "main" }}
-<div class="wrap">
-  <header class="page-head">
-    <h1>{{ .Title }}</h1>
-    {{- with .Params.lede }}<p class="standfirst">{{ . }}</p>{{ end }}
-  </header>
-  <article class="prose article-body page-end">{{ .Content }}</article>
-</div>
+<section class="hero" data-enter>
+  <div class="wrap"><div class="page-hero"><h1>{{ .Title }}</h1>{{ with .Params.lede }}<p class="t-lead">{{ . }}</p>{{ end }}</div></div>
+</section>
+<section class="body"><div class="wrap"><article class="prose">{{ .Content }}</article></div></section>
 {{ end }}

@@ -1,14 +1,17 @@
 {{ define "main" }}
-<div class="wrap page-end">
-  <header class="page-head">
-    <h1>{{ .Title }}</h1>
-    {{- with .Params.lede }}<p class="standfirst">{{ . }}</p>{{ end }}
-  </header>
+<section class="hero" data-enter>
+  <div class="wrap"><div class="page-hero"><h1>{{ .Title }}</h1>{{ with .Params.lede }}<p class="t-lead">{{ . }}</p>{{ end }}</div></div>
+</section>
+<section class="body">
+  <div class="wrap two-col">
   {{- range $kind := slice "product" "technical" }}
   {{- with where $.Pages "Params.kind" $kind }}
-  <h2 class="group-title">{{ if eq $kind "product" }}Product notes{{ else }}Technical notes{{ end }}</h2>
-  {{ partial "note-list.html" . }}
+    <div>
+      <h3>{{ if eq $kind "product" }}Product notes{{ else }}Technical notes{{ end }}</h3>
+      {{ partial "note-list.html" . }}
+    </div>
   {{- end }}
   {{- end }}
-</div>
+  </div>
+</section>
 {{ end }}

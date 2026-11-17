@@ -1,5 +1,6 @@
 ---
 title: "Sakhi: an AI nurse that calls first"
+tools: [{ icon: "whatsapp-icon", name: "WhatsApp" }]
 kicker: "Consumer health · Voice AI"
 weight: 10
 status: "in development"

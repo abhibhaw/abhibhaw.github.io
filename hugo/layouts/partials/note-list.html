@@ -1,5 +1,5 @@
-<ul class="notes">
+<ul class="ledger-list">
   {{- range .ByDate.Reverse }}
-  <li><a href="{{ .RelPermalink }}"><time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "Jan 2006" }}</time><span class="t">{{ .Title }}</span>{{ with .Description }}<span class="d">{{ . }}</span>{{ end }}</a></li>
+  <li><a href="{{ .RelPermalink }}"><time class="yr" datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "Jan 2006" }}</time><span class="t">{{ .Title }}</span>{{ with .Description }}<span class="d">{{ . }}</span>{{ end }}</a></li>
   {{- end }}
 </ul>

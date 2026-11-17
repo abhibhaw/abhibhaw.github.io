@@ -1,10 +1,9 @@
 {{ define "main" }}
-<div class="wrap">
-  <header class="page-head">
-    <h1>{{ .Title }}</h1>
-    {{- with .Params.lede }}<p class="standfirst">{{ . }}</p>{{ end }}
-  </header>
-  <div class="section" style="padding-top:40px"><div class="section-head"><h2>The loop</h2></div>{{ partial "loop.html" . }}</div>
-  <article class="prose article-body page-end" style="padding-top:48px">{{ .Content }}</article>
-</div>
+<section class="hero" data-enter>
+  <div class="wrap">
+    <div class="page-hero"><h1>{{ .Title }}</h1>{{ with .Params.lede }}<p class="t-lead">{{ . }}</p>{{ end }}</div>
+    {{ partial "loop.html" . }}
+  </div>
+</section>
+<section class="body"><div class="wrap"><article class="prose">{{ .Content }}</article></div></section>
 {{ end }}

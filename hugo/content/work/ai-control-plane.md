@@ -1,5 +1,6 @@
 ---
 title: "AI Control Plane: agents you can trust in production"
+org: "devtron"
 kicker: "Devtron · AI agents"
 weight: 30
 summary: "Companies had no safe way to deploy AI agents or control what they do. I defined one control plane to build, deploy and govern agents."

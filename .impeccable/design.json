@@ -1,0 +1,531 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-11-17T18:46:23+00:00",
+  "title": "Design System: abhibhaw.com",
+  "extensions": {
+    "colorMeta": {
+      "graphite-ink": {
+        "role": "primary",
+        "displayName": "Graphite Ink",
+        "tonalRamp": [
+          "oklch(15% 0.009 265)",
+          "oklch(26% 0.014 265)",
+          "oklch(38% 0.019 265)",
+          "oklch(49% 0.024 265)",
+          "oklch(61% 0.024 265)",
+          "oklch(72% 0.019 265)",
+          "oklch(84% 0.014 265)",
+          "oklch(95% 0.009 265)"
+        ],
+        "canonical": "#1d2330"
+      },
+      "datasheet-stock": {
+        "role": "neutral",
+        "displayName": "Datasheet Stock",
+        "tonalRamp": [
+          "oklch(15% 0.001 265)",
+          "oklch(26% 0.002 265)",
+          "oklch(38% 0.002 265)",
+          "oklch(49% 0.003 265)",
+          "oklch(61% 0.003 265)",
+          "oklch(72% 0.002 265)",
+          "oklch(84% 0.002 265)",
+          "oklch(95% 0.001 265)"
+        ],
+        "canonical": "#f5f6f8"
+      },
+      "plate-grey": {
+        "role": "neutral",
+        "displayName": "Plate Grey",
+        "tonalRamp": [
+          "oklch(15% 0.002 261)",
+          "oklch(26% 0.004 261)",
+          "oklch(38% 0.005 261)",
+          "oklch(49% 0.007 261)",
+          "oklch(61% 0.007 261)",
+          "oklch(72% 0.005 261)",
+          "oklch(84% 0.004 261)",
+          "oklch(95% 0.002 261)"
+        ],
+        "canonical": "#e9ecf1"
+      },
+      "slate-muted": {
+        "role": "neutral",
+        "displayName": "Slate Muted",
+        "tonalRamp": [
+          "oklch(15% 0.009 267)",
+          "oklch(26% 0.014 267)",
+          "oklch(38% 0.020 267)",
+          "oklch(49% 0.025 267)",
+          "oklch(61% 0.025 267)",
+          "oklch(72% 0.020 267)",
+          "oklch(84% 0.014 267)",
+          "oklch(95% 0.009 267)"
+        ],
+        "canonical": "#545b6b"
+      },
+      "hairline": {
+        "role": "neutral",
+        "displayName": "Hairline",
+        "tonalRamp": [
+          "oklch(15% 0.009 265)",
+          "oklch(26% 0.014 265)",
+          "oklch(38% 0.019 265)",
+          "oklch(49% 0.024 265)",
+          "oklch(61% 0.024 265)",
+          "oklch(72% 0.019 265)",
+          "oklch(84% 0.014 265)",
+          "oklch(95% 0.009 265)"
+        ],
+        "canonical": "color-mix(in oklab, #1d2330 11%, transparent)",
+        "note": "Mixed from graphite ink; the ramp follows the ink hue."
+      },
+      "rule-strong": {
+        "role": "neutral",
+        "displayName": "Rule Strong",
+        "tonalRamp": [
+          "oklch(15% 0.009 265)",
+          "oklch(26% 0.014 265)",
+          "oklch(38% 0.019 265)",
+          "oklch(49% 0.024 265)",
+          "oklch(61% 0.024 265)",
+          "oklch(72% 0.019 265)",
+          "oklch(84% 0.014 265)",
+          "oklch(95% 0.009 265)"
+        ],
+        "canonical": "color-mix(in oklab, #1d2330 20%, transparent)",
+        "note": "Mixed from graphite ink; the ramp follows the ink hue."
+      },
+      "paper-white": {
+        "role": "neutral",
+        "displayName": "Paper White",
+        "tonalRamp": [
+          "oklch(15% 0.000 90)",
+          "oklch(26% 0.000 90)",
+          "oklch(38% 0.000 90)",
+          "oklch(49% 0.000 90)",
+          "oklch(61% 0.000 90)",
+          "oklch(72% 0.000 90)",
+          "oklch(84% 0.000 90)",
+          "oklch(95% 0.000 90)"
+        ],
+        "canonical": "#ffffff"
+      },
+      "devtron-cobalt": {
+        "role": "family",
+        "displayName": "Devtron Cobalt",
+        "tonalRamp": [
+          "oklch(15% 0.063 261)",
+          "oklch(26% 0.098 261)",
+          "oklch(38% 0.134 261)",
+          "oklch(49% 0.170 261)",
+          "oklch(61% 0.170 261)",
+          "oklch(72% 0.134 261)",
+          "oklch(84% 0.098 261)",
+          "oklch(95% 0.063 261)"
+        ],
+        "canonical": "#1f5fd1"
+      },
+      "devtron-cobalt-text": {
+        "role": "family",
+        "displayName": "Devtron Cobalt Text",
+        "tonalRamp": [
+          "oklch(15% 0.057 261)",
+          "oklch(26% 0.090 261)",
+          "oklch(38% 0.123 261)",
+          "oklch(49% 0.155 261)",
+          "oklch(61% 0.155 261)",
+          "oklch(72% 0.123 261)",
+          "oklch(84% 0.090 261)",
+          "oklch(95% 0.057 261)"
+        ],
+        "canonical": "#1a52b8"
+      },
+      "devtron-tint": {
+        "role": "family",
+        "displayName": "Devtron Tint",
+        "tonalRamp": [
+          "oklch(15% 0.005 263)",
+          "oklch(26% 0.008 263)",
+          "oklch(38% 0.012 263)",
+          "oklch(49% 0.015 263)",
+          "oklch(61% 0.015 263)",
+          "oklch(72% 0.012 263)",
+          "oklch(84% 0.008 263)",
+          "oklch(95% 0.005 263)"
+        ],
+        "canonical": "#eaf0fb"
+      },
+      "bharatpe-amber": {
+        "role": "family",
+        "displayName": "BharatPe Amber",
+        "tonalRamp": [
+          "oklch(15% 0.055 63)",
+          "oklch(26% 0.087 63)",
+          "oklch(38% 0.118 63)",
+          "oklch(49% 0.149 63)",
+          "oklch(61% 0.149 63)",
+          "oklch(72% 0.118 63)",
+          "oklch(84% 0.087 63)",
+          "oklch(95% 0.055 63)"
+        ],
+        "canonical": "#f7941d"
+      },
+      "bharatpe-amber-on": {
+        "role": "family",
+        "displayName": "BharatPe Amber On",
+        "tonalRamp": [
+          "oklch(15% 0.021 268)",
+          "oklch(26% 0.034 268)",
+          "oklch(38% 0.046 268)",
+          "oklch(49% 0.058 268)",
+          "oklch(61% 0.058 268)",
+          "oklch(72% 0.046 268)",
+          "oklch(84% 0.034 268)",
+          "oklch(95% 0.021 268)"
+        ],
+        "canonical": "#1f2b4d"
+      },
+      "bharatpe-amber-text": {
+        "role": "family",
+        "displayName": "BharatPe Amber Text",
+        "tonalRamp": [
+          "oklch(15% 0.041 59)",
+          "oklch(26% 0.064 59)",
+          "oklch(38% 0.087 59)",
+          "oklch(49% 0.111 59)",
+          "oklch(61% 0.111 59)",
+          "oklch(72% 0.087 59)",
+          "oklch(84% 0.064 59)",
+          "oklch(95% 0.041 59)"
+        ],
+        "canonical": "#9a5300"
+      },
+      "bharatpe-tint": {
+        "role": "family",
+        "displayName": "BharatPe Tint",
+        "tonalRamp": [
+          "oklch(15% 0.009 75)",
+          "oklch(26% 0.014 75)",
+          "oklch(38% 0.019 75)",
+          "oklch(49% 0.024 75)",
+          "oklch(61% 0.024 75)",
+          "oklch(72% 0.019 75)",
+          "oklch(84% 0.014 75)",
+          "oklch(95% 0.009 75)"
+        ],
+        "canonical": "#fef1e0"
+      },
+      "independent-green": {
+        "role": "family",
+        "displayName": "Independent Green",
+        "tonalRamp": [
+          "oklch(15% 0.035 160)",
+          "oklch(26% 0.054 160)",
+          "oklch(38% 0.074 160)",
+          "oklch(49% 0.094 160)",
+          "oklch(61% 0.094 160)",
+          "oklch(72% 0.074 160)",
+          "oklch(84% 0.054 160)",
+          "oklch(95% 0.035 160)"
+        ],
+        "canonical": "#17734c"
+      },
+      "independent-tint": {
+        "role": "family",
+        "displayName": "Independent Tint",
+        "tonalRamp": [
+          "oklch(15% 0.005 165)",
+          "oklch(26% 0.008 165)",
+          "oklch(38% 0.011 165)",
+          "oklch(49% 0.014 165)",
+          "oklch(61% 0.014 165)",
+          "oklch(72% 0.011 165)",
+          "oklch(84% 0.008 165)",
+          "oklch(95% 0.005 165)"
+        ],
+        "canonical": "#e6f2ec"
+      },
+      "correction-red": {
+        "role": "tertiary",
+        "displayName": "Correction Red",
+        "tonalRamp": [
+          "oklch(15% 0.066 30)",
+          "oklch(26% 0.104 30)",
+          "oklch(38% 0.142 30)",
+          "oklch(49% 0.180 30)",
+          "oklch(61% 0.180 30)",
+          "oklch(72% 0.142 30)",
+          "oklch(84% 0.104 30)",
+          "oklch(95% 0.066 30)"
+        ],
+        "canonical": "#c8261a"
+      },
+      "before-grey": {
+        "role": "neutral",
+        "displayName": "Before Grey",
+        "tonalRamp": [
+          "oklch(15% 0.004 270)",
+          "oklch(26% 0.006 270)",
+          "oklch(38% 0.008 270)",
+          "oklch(49% 0.010 270)",
+          "oklch(61% 0.010 270)",
+          "oklch(72% 0.008 270)",
+          "oklch(84% 0.006 270)",
+          "oklch(95% 0.004 270)"
+        ],
+        "canonical": "#d5d8e0"
+      },
+      "old-path-grey": {
+        "role": "neutral",
+        "displayName": "Old Path Grey",
+        "tonalRamp": [
+          "oklch(15% 0.010 270)",
+          "oklch(26% 0.016 270)",
+          "oklch(38% 0.022 270)",
+          "oklch(49% 0.028 270)",
+          "oklch(61% 0.028 270)",
+          "oklch(72% 0.022 270)",
+          "oklch(84% 0.016 270)",
+          "oklch(95% 0.010 270)"
+        ],
+        "canonical": "#8b92a6"
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "Display",
+        "purpose": "Home hero headline only."
+      },
+      "page-title": {
+        "displayName": "Page Title",
+        "purpose": "h1 of case, project, note and list pages."
+      },
+      "headline": {
+        "displayName": "Headline",
+        "purpose": "Section headings, from the kit h2 scale."
+      },
+      "title": {
+        "displayName": "Title",
+        "purpose": "Part names in family bands; prose h2 at 34px uses the same face."
+      },
+      "figure": {
+        "displayName": "Figure",
+        "purpose": "Key characteristics and part-row figures, proportional numerals."
+      },
+      "body": {
+        "displayName": "Body",
+        "purpose": "Default reading text, tabular numerals."
+      },
+      "lead": {
+        "displayName": "Lead",
+        "purpose": "Sentence under a headline; 18px under 1024px."
+      },
+      "prose": {
+        "displayName": "Prose",
+        "purpose": "Case and note bodies at 68ch."
+      },
+      "label": {
+        "displayName": "Label",
+        "purpose": "Band text, spec headings, lane labels; sentence case."
+      },
+      "mono": {
+        "displayName": "Mono",
+        "purpose": "Inline code and code blocks only."
+      }
+    },
+    "shadows": [],
+    "motion": [
+      {
+        "name": "ease",
+        "value": "cubic-bezier(.2, .8, .2, 1)",
+        "purpose": "Kit UI ease-out for hover, underline and arrow transitions."
+      },
+      {
+        "name": "dur",
+        "value": "180ms",
+        "purpose": "Kit duration for state transitions."
+      },
+      {
+        "name": "ease-enter",
+        "value": "cubic-bezier(.22, 1, .36, 1)",
+        "purpose": "Entrance settle; the chart after-bar grows with it."
+      },
+      {
+        "name": "bar-in",
+        "value": "900ms cubic-bezier(.22, 1, .36, 1) 450ms",
+        "purpose": "After-bar fill grows from 4% to full on load. Off under reduced motion."
+      },
+      {
+        "name": "row-hover",
+        "value": "150ms ease",
+        "purpose": "Part row background tint on hover."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "phone",
+        "value": "639px"
+      },
+      {
+        "name": "diagram-vertical",
+        "value": "720px"
+      },
+      {
+        "name": "one-column",
+        "value": "1023px"
+      },
+      {
+        "name": "desktop",
+        "value": "1024px"
+      }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "The one filled action per view, usually Email me. Hover animates the drawn arrow; the fill stays graphite.",
+      "html": "<a class=\"ds-btn ds-btn-primary\" href=\"#\">Email me<svg class=\"ds-arrow\" viewBox=\"0 0 12 12\" aria-hidden=\"true\"><path class=\"ds-arrow__stem\" d=\"M1 6h8\"/><path class=\"ds-arrow__head\" d=\"M4.5 2.5 8 6l-3.5 3.5\"/></svg></a>",
+      "css": ".ds-btn{display:inline-flex;align-items:center;gap:8px;height:44px;padding:0 24px;border-radius:8px;border:1px solid transparent;font:500 16px/1 'Hanken Grotesk',system-ui,sans-serif;text-decoration:none;cursor:pointer;transition:background-color 180ms cubic-bezier(.2,.8,.2,1),border-color 180ms cubic-bezier(.2,.8,.2,1);} .ds-btn-primary{background:#1d2330;color:#fff;} .ds-arrow{width:12px;height:12px;overflow:visible;fill:none;stroke:currentColor;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round;} .ds-arrow__stem{transform-origin:left;transform:scaleX(.7);transition:transform 180ms cubic-bezier(.2,.8,.2,1);} .ds-arrow__head{transition:transform 180ms cubic-bezier(.2,.8,.2,1);} .ds-btn-primary:hover .ds-arrow__stem{transform:scaleX(1);} .ds-btn-primary:hover .ds-arrow__head{transform:translateX(3px);} .ds-btn:focus-visible{outline:2px solid #1d2330;outline-offset:2px;} .ds-btn:active{transform:translateY(1px) scale(.985);}"
+    },
+    {
+      "name": "Secondary Button",
+      "kind": "button",
+      "refersTo": "button-secondary",
+      "description": "The quiet second action beside the primary. On a phone it becomes an underlined text link.",
+      "html": "<a class=\"ds-btn2\" href=\"#\">See the case studies</a>",
+      "css": ".ds-btn2{display:inline-flex;align-items:center;height:44px;padding:0 24px;border-radius:8px;background:#f5f6f8;color:#1d2330;border:1px solid color-mix(in oklab,#1d2330 20%,transparent);font:500 16px/1 'Hanken Grotesk',system-ui,sans-serif;text-decoration:none;transition:background-color 180ms cubic-bezier(.2,.8,.2,1),border-color 180ms cubic-bezier(.2,.8,.2,1);} .ds-btn2:hover{background:color-mix(in oklab,#f5f6f8 94%,#1d2330);border-color:color-mix(in oklab,#1d2330 35%,transparent);} .ds-btn2:focus-visible{outline:2px solid #1d2330;outline-offset:2px;} .ds-btn2:active{transform:translateY(1px) scale(.985);}"
+    },
+    {
+      "name": "Text Link",
+      "kind": "custom",
+      "refersTo": "",
+      "description": "Graphite link with a rule-strong underline that turns solid on hover.",
+      "html": "<a class=\"ds-link\" href=\"#\">All case studies</a>",
+      "css": ".ds-link{font:500 16px/1.5 'Hanken Grotesk',system-ui,sans-serif;color:#1d2330;text-decoration:underline;text-decoration-color:color-mix(in oklab,#1d2330 20%,transparent);text-underline-offset:4px;transition:text-decoration-color 180ms cubic-bezier(.2,.8,.2,1);} .ds-link:hover{text-decoration-color:currentColor;} .ds-link:focus-visible{outline:2px solid #1d2330;outline-offset:2px;border-radius:2px;}"
+    },
+    {
+      "name": "Navigation",
+      "kind": "nav",
+      "refersTo": "nav",
+      "description": "Fixed stock bar with a hairline base; hover draws a 2px line under the word from the left.",
+      "html": "<nav class=\"ds-nav\"><a class=\"ds-nav__logo\" href=\"#\"><span class=\"ds-nav__dot\"></span>Abhibhaw</a><span class=\"ds-nav__links\"><a class=\"ds-nav__link\" aria-current=\"page\" href=\"#\">Work</a><a class=\"ds-nav__link\" href=\"#\">Notes</a><a class=\"ds-nav__link\" href=\"#\">How I work</a></span><a class=\"ds-nav__cta\" href=\"#\">Email me</a></nav>",
+      "css": ".ds-nav{display:flex;align-items:center;gap:32px;height:72px;padding:0 24px;background:#f5f6f8;color:#1d2330;border-bottom:1px solid color-mix(in oklab,#1d2330 11%,transparent);} .ds-nav__logo{display:inline-flex;align-items:center;gap:8px;font:500 22px/1 'Sofia Sans Condensed','Hanken Grotesk',system-ui,sans-serif;letter-spacing:-0.02em;color:inherit;text-decoration:none;} .ds-nav__dot{width:28px;height:28px;border-radius:50%;background:#e9ecf1;} .ds-nav__links{display:flex;gap:4px;flex:1;} .ds-nav__link{position:relative;display:inline-flex;align-items:center;height:36px;padding:0 12px;font:500 15px/1 'Hanken Grotesk',system-ui,sans-serif;color:inherit;text-decoration:none;} .ds-nav__link::before{content:'';position:absolute;left:12px;right:12px;bottom:-2px;height:2px;border-radius:2px;background:currentColor;transform:scaleX(0);transform-origin:right;transition:transform 180ms cubic-bezier(.2,.8,.2,1);} .ds-nav__link:hover::before,.ds-nav__link:focus-visible::before,.ds-nav__link[aria-current=page]::before{transform:scaleX(1);transform-origin:left;} .ds-nav__link:focus-visible{outline:2px solid #1d2330;outline-offset:2px;} .ds-nav__cta{display:inline-flex;align-items:center;height:36px;padding:0 16px;border-radius:8px;background:#1d2330;color:#fff;font:500 14px/1 'Hanken Grotesk',system-ui,sans-serif;text-decoration:none;} .ds-nav__cta:focus-visible{outline:2px solid #1d2330;outline-offset:2px;}"
+    },
+    {
+      "name": "Family Field with Part Row",
+      "kind": "card",
+      "refersTo": "family-field-devtron",
+      "description": "A full-bleed band in the family colour; products are transparent ruled rows with a figure and a correction mark.",
+      "html": "<div class=\"ds-field ds-field--devtron\"><div class=\"ds-field__head\"><h3>Devtron</h3><p>Open-source platform to deploy and run software on Kubernetes</p></div><ul class=\"ds-parts\"><li><a class=\"ds-part\" href=\"#\"><span class=\"ds-part__name\"><b>GPU self-service</b><span class=\"ds-part__tools\"><span></span><span></span></span></span><span class=\"ds-part__summary\">AI teams request and get GPUs without a ticket.</span><span class=\"ds-part__spec\"><b><del>Days</del> Minutes</b>wait for a GPU</span></a></li><li><a class=\"ds-part\" href=\"#\"><span class=\"ds-part__name\"><b>Atlas</b></span><span class=\"ds-part__summary\">Explains why a deploy failed and suggests a fix.</span><span class=\"ds-part__spec\"><b><del>Hours</del> ~1 min</b>to root cause</span></a></li></ul></div>",
+      "css": ".ds-field{--fam:#1f5fd1;--fam-on:#ffffff;--fam-text:#1a52b8;--fam-tint:#eaf0fb;background:var(--fam);color:var(--fam-on);padding:32px;font-family:'Hanken Grotesk',system-ui,sans-serif;} .ds-field--bharatpe{--fam:#f7941d;--fam-on:#1f2b4d;--fam-text:#9a5300;--fam-tint:#fef1e0;} .ds-field--independent{--fam:#17734c;--fam-on:#ffffff;--fam-text:#17734c;--fam-tint:#e6f2ec;} .ds-field__head{display:flex;justify-content:space-between;align-items:baseline;gap:8px 16px;flex-wrap:wrap;} .ds-field__head h3{margin:0;font:600 20px/1.2 'Sofia Sans Condensed','Hanken Grotesk',system-ui,sans-serif;letter-spacing:-0.015em;} .ds-field__head p{margin:0;font-size:14px;font-weight:500;} .ds-parts{list-style:none;margin:16px 0 0;padding:0;border-top:1px solid color-mix(in oklab,var(--fam-on) 30%,transparent);} .ds-parts>li{border-bottom:1px solid color-mix(in oklab,var(--fam-on) 30%,transparent);} .ds-part{display:grid;grid-template-columns:minmax(0,4fr) minmax(0,5fr) minmax(160px,2.4fr);gap:8px 32px;align-items:center;padding:16px 0;color:inherit;text-decoration:none;transition:background-color 150ms ease;} .ds-part:hover{background:color-mix(in oklab,var(--fam-on) 8%,transparent);} .ds-part:hover .ds-part__name b{text-decoration:underline;text-decoration-thickness:2px;text-underline-offset:.15em;} .ds-part:focus-visible{outline:2px solid var(--fam-on);outline-offset:2px;} .ds-part__name{display:grid;gap:8px;} .ds-part__name b{font:600 24px/1.2 'Sofia Sans Condensed','Hanken Grotesk',system-ui,sans-serif;letter-spacing:-0.005em;} .ds-part__tools{display:flex;gap:8px;background:#fff;border-radius:6px;padding:4px 6px;width:fit-content;} .ds-part__tools span{width:20px;height:20px;border-radius:4px;background:#e9ecf1;} .ds-part__summary{font-size:16px;line-height:1.5;} .ds-part__spec{font-size:14px;line-height:1.35;opacity:.92;} .ds-part__spec b{display:block;font:600 28px/1.1 'Sofia Sans Condensed','Hanken Grotesk',system-ui,sans-serif;font-variant-numeric:proportional-nums;} .ds-part__spec del{font-size:.68em;font-weight:500;margin-right:6px;opacity:.8;text-decoration:line-through;text-decoration-thickness:2px;text-decoration-color:currentColor;} .ds-field--bharatpe .ds-part__spec del{text-decoration-color:#c8261a;}"
+    },
+    {
+      "name": "Wait-Time Chart",
+      "kind": "custom",
+      "refersTo": "chart",
+      "description": "The characteristic plot: grey before-bars with struck values, family after-bars that grow on load.",
+      "html": "<figure class=\"ds-chart\"><p class=\"ds-chart__title\">Wait time, before and after</p><p class=\"ds-chart__sub\">Find where people wait, remove the wait, keep it safe.</p><div class=\"ds-chart__axis\"><span></span><span>Minutes</span><span>Hours</span><span>Days</span><span>Weeks</span></div><div class=\"ds-chart__row\"><b>GPU<small>Access to a GPU</small></b><div class=\"ds-chart__track\"><span class=\"ds-bar ds-bar--before\" style=\"width:70%\"><span>Days</span></span><span class=\"ds-bar ds-bar--after\" style=\"width:8%\"><span>Minutes</span></span></div></div></figure>",
+      "css": ".ds-chart{margin:0;background:#e9ecf1;color:#1d2330;border-radius:20px;padding:32px;font-family:'Hanken Grotesk',system-ui,sans-serif;} .ds-chart__title{margin:0;font:600 22px/1.2 'Sofia Sans Condensed','Hanken Grotesk',system-ui,sans-serif;letter-spacing:-0.02em;} .ds-chart__sub{margin:8px 0 0;font-size:14px;color:#545b6b;} .ds-chart__axis{display:grid;grid-template-columns:128px repeat(4,minmax(0,1fr));margin-top:32px;padding-bottom:8px;font-size:13px;color:#545b6b;} .ds-chart__row{display:grid;grid-template-columns:128px minmax(0,1fr);align-items:center;} .ds-chart__row b{font-size:14px;font-weight:600;line-height:1.25;padding-right:12px;} .ds-chart__row small{display:block;font-weight:400;color:#545b6b;font-size:13px;} .ds-chart__track{position:relative;height:52px;background:linear-gradient(90deg,#d5d8e0 1px,transparent 1px) 0 0/25% 100%;border-right:1px solid #d5d8e0;} .ds-bar{position:absolute;left:0;height:18px;border-radius:0 3px 3px 0;} .ds-bar span{position:absolute;top:50%;transform:translateY(-50%);white-space:nowrap;font-size:13px;font-weight:600;} .ds-bar--before{top:4px;background:#d5d8e0;} .ds-bar--before span{right:8px;font-weight:500;text-decoration:line-through;text-decoration-color:#c8261a;text-decoration-thickness:2px;} .ds-bar--after{bottom:4px;} .ds-bar--after::before{content:'';position:absolute;inset:0;border-radius:inherit;background:#1f5fd1;transform-origin:left;} .ds-bar--after span{left:calc(100% + 8px);} @media (prefers-reduced-motion:no-preference){.ds-bar--after::before{animation:ds-bar-in 900ms cubic-bezier(.22,1,.36,1) 450ms both;} @keyframes ds-bar-in{from{transform:scaleX(.04);}}}"
+    },
+    {
+      "name": "Key Characteristics",
+      "kind": "custom",
+      "refersTo": "spec-figure",
+      "description": "The case page spec block: a 2px family rule, then figures in the family text colour with a muted label.",
+      "html": "<div class=\"ds-specs\"><h2>Key characteristics</h2><div><span class=\"ds-specs__n\"><del>14 days</del> 17 min</span><span class=\"ds-specs__l\">to onboard a merchant</span></div><div><span class=\"ds-specs__n\">20,000+</span><span class=\"ds-specs__l\">requests handled</span></div></div>",
+      "css": ".ds-specs{--fam:#f7941d;--fam-on:#1f2b4d;--fam-text:#9a5300;--fam-tint:#fef1e0;border-top:2px solid var(--fam);font-family:'Hanken Grotesk',system-ui,sans-serif;color:#1d2330;max-width:360px;} .ds-specs h2{margin:0;padding:12px 0;font-size:14px;font-weight:600;color:#545b6b;} .ds-specs div{padding:16px 0;border-top:1px solid color-mix(in oklab,#1d2330 11%,transparent);} .ds-specs__n{display:block;font:600 clamp(34px,3.2vw,48px)/1.1 'Sofia Sans Condensed','Hanken Grotesk',system-ui,sans-serif;letter-spacing:-0.01em;color:var(--fam-text);font-variant-numeric:proportional-nums;} .ds-specs__n del{font-size:.55em;font-weight:500;margin-right:8px;vertical-align:.2em;color:#545b6b;text-decoration:line-through;text-decoration-color:#c8261a;text-decoration-thickness:2px;} .ds-specs__l{display:block;margin-top:4px;font-size:14px;color:#545b6b;}"
+    },
+    {
+      "name": "Block Diagram",
+      "kind": "custom",
+      "refersTo": "flow-lane-after",
+      "description": "Old lane dashed with the removed block struck; current lane on the family tint with solid arrows.",
+      "html": "<figure class=\"ds-flow\"><div class=\"ds-lane ds-lane--before\"><span class=\"ds-lane__label\">Before</span><ol><li class=\"ds-node\"><b>Request</b></li><li class=\"ds-edge\"><span>ticket</span></li><li class=\"ds-node\"><del>Manual approval</del><small>days</small></li></ol></div><div class=\"ds-lane\"><span class=\"ds-lane__label\">After</span><ol><li class=\"ds-node\"><b>Request</b></li><li class=\"ds-edge\"><span>policy check</span></li><li class=\"ds-node\"><b>GPU ready</b><small>minutes</small></li></ol></div></figure>",
+      "css": ".ds-flow{--fam:#1f5fd1;--fam-on:#ffffff;--fam-text:#1a52b8;--fam-tint:#eaf0fb;margin:0;display:grid;gap:12px;font-family:'Hanken Grotesk',system-ui,sans-serif;color:#1d2330;} .ds-lane{background:var(--fam-tint);border-radius:20px;padding:24px;} .ds-lane--before{background:transparent;border:1px dashed color-mix(in oklab,#1d2330 20%,transparent);} .ds-lane__label{display:block;font-size:14px;font-weight:600;color:var(--fam-text);margin-bottom:16px;} .ds-lane--before .ds-lane__label{color:#545b6b;} .ds-flow ol{list-style:none;margin:0;padding:0;display:flex;align-items:stretch;} .ds-node{max-width:15em;background:#f5f6f8;border:1.5px solid var(--fam);border-radius:8px;padding:12px 16px;font-size:16px;line-height:1.3;} .ds-lane--before .ds-node{background:transparent;border:1.5px dashed #a3a9ba;} .ds-node b,.ds-node del{font-weight:600;} .ds-node del{color:#545b6b;text-decoration-color:#c8261a;text-decoration-thickness:2px;} .ds-node small{display:block;font-size:14px;color:#545b6b;margin-top:2px;} .ds-edge{flex:1 1 0;min-width:72px;position:relative;font-size:14px;color:#545b6b;text-align:center;} .ds-edge span{position:absolute;bottom:calc(50% + 6px);left:8px;right:12px;} .ds-edge::before{content:'';position:absolute;left:0;right:6px;top:50%;border-top:1.5px solid var(--fam);} .ds-edge::after{content:'';position:absolute;right:0;top:calc(50% - 4.25px);border:5px solid transparent;border-left:8px solid var(--fam);border-right:0;} .ds-lane--before .ds-edge::before{border-top:1.5px dashed #8b92a6;} .ds-lane--before .ds-edge::after{border-left-color:#8b92a6;}"
+    },
+    {
+      "name": "Release Gate",
+      "kind": "custom",
+      "refersTo": "gate",
+      "description": "Targets only, never results: a white track, a family pass zone and a graphite threshold tick.",
+      "html": "<figure class=\"ds-gate\"><div class=\"ds-gate__scale\"><span>0%</span><span>50%</span><span>100%</span></div><div class=\"ds-gate__row\"><span class=\"ds-gate__name\">Answer accuracy<small>on the test set</small></span><span class=\"ds-gate__bar\"><span class=\"ds-gate__pass\" style=\"left:90%\"></span><span class=\"ds-gate__tick\" style=\"left:90%\"><b>&ge;90%</b></span></span></div></figure>",
+      "css": ".ds-gate{--fam:#17734c;--fam-on:#ffffff;--fam-text:#17734c;--fam-tint:#e6f2ec;margin:0;background:var(--fam-tint);border-radius:20px;padding:24px 32px;font-family:'Hanken Grotesk',system-ui,sans-serif;color:#1d2330;} .ds-gate__scale{display:flex;justify-content:space-between;margin-left:38%;font-size:13px;color:#545b6b;padding-bottom:8px;} .ds-gate__row{display:grid;grid-template-columns:38% 1fr;align-items:center;padding:12px 0;border-top:1px solid #c9dfd3;} .ds-gate__name{font-weight:600;font-size:16px;line-height:1.25;padding-right:12px;} .ds-gate__name small{display:block;font-weight:400;color:#545b6b;font-size:14px;margin-top:2px;} .ds-gate__bar{position:relative;height:24px;background:#f5f6f8;border-radius:3px;} .ds-gate__pass{position:absolute;top:0;bottom:0;right:0;background:var(--fam);border-radius:0 3px 3px 0;} .ds-gate__tick{position:absolute;top:-4px;bottom:-4px;border-left:2px solid #1d2330;} .ds-gate__tick b{position:absolute;left:-2px;transform:translateX(-100%);top:5px;padding-right:6px;font-size:13px;font-weight:600;white-space:nowrap;}"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Datasheet",
+    "overview": "Each shipped product is documented like an electronic part.\nA part has a characteristic curve of what it changed, a block diagram of how it works, and a spec table of what was decided and removed.\nThe page reads as a technical sheet on cool off-white stock with graphite ink.\nProof sits in numbers, plots and ruled tables, not in adjectives or decoration.\n\nColour is functional, never ornamental.\nThree organization families own whole regions of the page: Devtron cobalt, BharatPe amber and independent green.\nOne red has one job: it strikes the value that was removed.\nEverything people read is graphite on stock.\n\nDensity is moderate and editorial.\nHome sections are one or two screens tall, with a big plotted chart in the first viewport.\nInner pages are documents: sections take their content height, and prose runs at a reading measure.\nThe site is built on the taste-skill kit, which owns the grid, the spacing scale, the base type scale, buttons, links and the hover layer.\nThis system adds the datasheet world on top of that kit.",
+    "keyCharacteristics": [
+      "Cool off-white stock, graphite ink, no dark mode.",
+      "Three peer family colours, each with an \"on\", a \"text\" and a \"tint\" variant.",
+      "The correction mark: old value struck in red, new value beside it.",
+      "Condensed technical grotesk for names and values, humanist grotesk for reading.",
+      "Measured plots and block diagrams drawn in CSS, not images.",
+      "Flat surfaces: depth comes from tone and colour fields, never from shadow."
+    ],
+    "rules": [
+      {
+        "name": "The Red Means Removed Rule",
+        "body": "Correction Red appears only as the strike line through a value that no longer exists. If a red element does not mark a removal, it is wrong.",
+        "section": "colors"
+      },
+      {
+        "name": "The Family Owns The Region Rule",
+        "body": "A family colour fills a whole region or draws that family's data. It never decorates a neutral element. Unscoped elements fall back to graphite ink and plate grey.",
+        "section": "colors"
+      },
+      {
+        "name": "The Readable Family Rule",
+        "body": "Family colour as text uses the \"text\" variant, never the field value. Amber text on stock uses `bharatpe-amber-text`.",
+        "section": "colors"
+      },
+      {
+        "name": "The Two Faces Rule",
+        "body": "Condensed for names and values, Hanken for reading. A paragraph is never set in the condensed face, and a part name or figure is never set in Hanken.",
+        "section": "typography"
+      },
+      {
+        "name": "The Numeral Rule",
+        "body": "Running text and tables use tabular numerals. Headings use normal numerals. Display figures use proportional numerals so a big number does not look gappy.",
+        "section": "typography"
+      },
+      {
+        "name": "The Sentence Case Rule",
+        "body": "Labels are short sentence-case words in weight 600. There is no uppercase tracking anywhere in this system.",
+        "section": "typography"
+      },
+      {
+        "name": "The Ruled Sheet Rule",
+        "body": "Lists, tables and spec blocks are separated by 1px hairlines with a stronger top rule, not by cards or gaps.",
+        "section": "layout"
+      },
+      {
+        "name": "The Flat Sheet Rule",
+        "body": "Surfaces never cast a shadow. If an element needs to stand apart, give it a plate grey or tint ground, or a rule.",
+        "section": "elevation"
+      }
+    ],
+    "dos": [
+      "Do strike every replaced value with the correction mark: muted text, 2px Correction Red line-through, new value beside it in weight 600. On a cobalt or green band, strike in the band's \"on\" colour instead.",
+      "Do scope a region to its organization with `data-org` so it inherits the family field, on, text and tint values.",
+      "Do set part names, chart titles, figures and prose h2 in Sofia Sans Condensed, and all reading text in Hanken Grotesk.",
+      "Do separate rows with 1px hairlines under a stronger top rule.",
+      "Do draw charts, diagrams and gates in HTML and CSS from front matter data, so numbers stay real and readable.",
+      "Do put tool logos on the small white plate when they sit on a family band.",
+      "Do honour reduced motion: every load animation must show its final state without movement."
+    ],
+    "donts": [
+      "Don't use Correction Red for anything except a removed value: no red errors, buttons, links or highlights.",
+      "Don't use a family colour on an element that does not belong to that family.",
+      "Don't put white text on BharatPe amber; use the deep navy \"on\" colour.",
+      "Don't add shadows, glows or lifted cards.",
+      "Don't nest cards inside a family band; products are ruled rows on the band.",
+      "Don't put a small label or eyebrow above a page title; on case pages the family band carries that context.",
+      "Don't use uppercase tracked labels.",
+      "Don't draw results on a release gate or a project that is still in development; show targets and status only."
+    ]
+  }
+}

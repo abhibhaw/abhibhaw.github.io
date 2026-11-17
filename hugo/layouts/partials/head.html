@@ -1,19 +1,28 @@
 {{- $title := cond .IsHome (printf "%s - %s" site.Title site.Params.headline) (printf "%s - %s" .Title site.Title) -}}
 {{- $desc := or .Description .Params.summary site.Params.description | plainify -}}
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="page-type" content="service">
+<meta name="site-kind" content="other">
 <title>{{ $title }}</title>
 <meta name="description" content="{{ $desc }}">
 <meta name="author" content="{{ site.Params.author }}">
 <link rel="canonical" href="{{ .Permalink }}">
-<meta name="theme-color" content="#ffffff">
+<meta name="theme-color" content="#f5f6f8">
 <meta name="color-scheme" content="light">
 <link rel="icon" href="{{ "favicon.ico" | relURL }}" sizes="any">
 <link rel="icon" type="image/png" sizes="32x32" href="{{ "favicon-32x32.png" | relURL }}">
 <link rel="apple-touch-icon" href="{{ "apple-touch-icon.png" | relURL }}">
 <link rel="manifest" href="{{ "site.webmanifest" | relURL }}">
-<link rel="preload" href="/fonts/schibsted-grotesk-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="preload" href="/fonts/source-serif-4-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/hanken-grotesk-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/sofia-sans-condensed-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="{{ "kit/system.css" | relURL }}">
+<link rel="stylesheet" href="{{ "kit/motion/motion.css" | relURL }}">
+<script>document.documentElement.classList.add('m-enter');setTimeout(()=>document.documentElement.classList.add('m-enter-done'),700)</script>
+{{- if .IsHome }}
+<script>document.documentElement.classList.add('mo-js');setTimeout(()=>document.documentElement.classList.add('mo-safe'),2500)</script>
+<link rel="modulepreload" href="{{ "kit/moments/moments.js" | relURL }}">
+{{- end }}
 {{- $css := resources.Get "css/main.css" | minify | fingerprint }}
 <link rel="stylesheet" href="{{ $css.RelPermalink }}" integrity="{{ $css.Data.Integrity }}">
 {{- if eq .Params.kind "technical" }}
@@ -25,7 +34,7 @@
 <meta property="og:title" content="{{ cond .IsHome site.Title .Title }}">
 <meta property="og:description" content="{{ $desc }}">
 <meta property="og:url" content="{{ .Permalink }}">
-<meta property="og:image" content="{{ site.Params.image }}">
+<meta property="og:image" content="{{ "images/portrait.jpg" | absURL }}">
 <meta name="twitter:card" content="summary">
 {{- if .IsHome }}
 <script type="application/ld+json">{{ dict "@context" "https://schema.org" "@type" "Person" "name" site.Params.author "jobTitle" "Product Manager" "url" site.BaseURL "image" site.Params.image "sameAs" (slice "https://www.linkedin.com/in/abhibhaw/" "https://github.com/abhibhaw") | jsonify | safeJS }}</script>

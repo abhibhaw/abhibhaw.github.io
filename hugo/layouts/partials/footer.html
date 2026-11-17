@@ -1,10 +1,27 @@
-<footer class="colophon">
+<footer class="footer closing" id="contact" aria-labelledby="close-h">
   <div class="wrap">
-    <span>{{ site.Params.author }} · <a href="mailto:{{ site.Params.email }}">{{ site.Params.email }}</a></span>
-    <nav aria-label="Elsewhere">
-      {{- range site.Params.social }}<a href="{{ .url }}" rel="me">{{ .name }}</a>{{ end }}
-      <a href="{{ "/resume/" | relURL }}">Resume</a>
-      <a href="{{ "/notes/index.xml" | relURL }}">RSS</a>
-    </nav>
+    <div class="closing__cta close--type">
+      <div class="section-head">
+        <h2 id="close-h">Hiring a product manager who builds?</h2>
+        <p>Write to {{ site.Params.email }}, or get the one-page resume.</p>
+      </div>
+      <a class="btn btn--primary btn--xl btn--wide" href="mailto:{{ site.Params.email }}">Email me<svg class="m-arrow" viewBox="0 0 12 12" aria-hidden="true"><path class="m-arrow__stem" d="M1 6h8"/><path class="m-arrow__head" d="M4.5 2.5 8 6l-3.5 3.5"/></svg></a>
+    </div>
+    <div class="closing__links">
+      <div class="grid">
+        <div class="span-4 stack-4">
+          <a class="nav__logo" href="{{ "/" | relURL }}"><img src="{{ "images/portrait.webp" | relURL }}" alt="" width="28" height="28">{{ site.Title }}</a>
+          <p class="footer__lede">Product manager who builds. Gurgaon, India.</p>
+        </div>
+        <div class="span-2 footer__col"><h3>Work</h3><ul><li><a href="{{ "/work/" | relURL }}">Case studies</a></li><li><a href="{{ "/projects/" | relURL }}">Building now</a></li></ul></div>
+        <div class="span-2 footer__col"><h3>Method</h3><ul><li><a href="{{ "/how-i-work/" | relURL }}">How I work</a></li><li><a href="{{ "/lab/" | relURL }}">Lab</a></li></ul></div>
+        <div class="span-2 footer__col"><h3>Writing</h3><ul><li><a href="{{ "/notes/" | relURL }}">Notes</a></li><li><a href="{{ "/notes/index.xml" | relURL }}">RSS</a></li></ul></div>
+        <div class="span-2 footer__col"><h3>Contact</h3><ul><li><a href="mailto:{{ site.Params.email }}">{{ site.Params.email }}</a></li><li><a href="{{ "/resume/" | relURL }}">Resume</a></li></ul></div>
+      </div>
+      <div class="footer__legal">
+        <span>&copy; {{ now.Year }} {{ site.Params.author }}. Product names and logos are trademarks of their owners.</span>
+        <div class="socials">{{ range site.Params.social }}<a href="{{ .url }}" rel="me">{{ .name }}</a>{{ end }}</div>
+      </div>
+    </div>
   </div>
 </footer>
