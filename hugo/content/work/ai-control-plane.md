@@ -2,7 +2,7 @@
 title: "AI Control Plane: agents you can trust in production"
 kicker: "Devtron · AI agents"
 weight: 30
-summary: "Companies had no safe way to release AI agents, control what they do, or change their model. I defined one control plane to build, ship and govern agents."
+summary: "Companies had no safe way to deploy AI agents or control what they do. I defined one control plane to build, deploy and govern agents."
 headline_metric: { value: "3", label: "design partners in private beta" }
 role: "Product Manager"
 when: "2026 - now"
@@ -14,9 +14,9 @@ facts:
   - label: "User"
     text: "Companies that want AI agents in production, and the platform teams that must keep them safe."
   - label: "Problem"
-    text: "Teams could build an agent quickly. They had no safe way to release it, limit what it can do, or change its model without breaking it."
+    text: "Teams could build an agent quickly. They had no safe way to deploy it or limit what it can do."
   - label: "Decision"
-    text: "One control plane for the whole agent lifecycle: build, release, govern, and replay-test a change against real past conversations before it goes live."
+    text: "One control plane for the whole agent lifecycle: build, deploy and govern."
   - label: "Not built"
     text: "Another agent framework. Teams keep the framework they already use. The control plane governs how agents ship and run, not how they are written."
   - label: "Status"
@@ -25,19 +25,17 @@ facts:
 
 ## The problem
 
-Building an AI agent got easy. Running one in production did not.
-Teams that shipped agents hit three questions:
+Building a demo agent got easy. Running one in production did not.
+Teams that shipped agents hit two questions:
 
-1. **How do we release a change safely?** A new prompt or tool can break an agent in ways a unit test misses.
+1. **How do we deploy it safely?** A new prompt or tool can break an agent in ways a unit test misses.
 2. **What is the agent allowed to do?** It calls real tools with real data.
-3. **Can we change the model?** A new model can be cheaper and better, or quietly worse on your tasks.
 
 Scripts and manual checks work for one agent. They fail at ten.
 
 ## The decisions
 
-- **One control plane** for build, release, access and testing, so someone sees the whole agent.
-- **Replay before release.** A change is tested against real past conversations, so a model swap is decided with evidence.
+- **One control plane** to build, deploy and govern agents, so one team sees the whole agent.
 - **Governance by default.** A platform team sets the rules once. Agent teams ship inside them.
 
 ## What I left out

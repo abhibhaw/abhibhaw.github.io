@@ -39,7 +39,7 @@ experience:
         about: "build, ship and govern AI agents securely"
         bullets:
           - title: "Agents in production"
-            text: "Companies had no safe way to release AI agents, control what they do, or change their model. I defined one control plane to build, release, govern and replay-test agents before changes go live. In private beta with 3 design partners."
+            text: "Companies had no safe way to deploy AI agents or control what they do. I defined one control plane to build, deploy and govern agents. In private beta with 3 design partners."
       - name: "GPU Platform"
         about: "self-service GPUs for AI teams"
         bullets:
