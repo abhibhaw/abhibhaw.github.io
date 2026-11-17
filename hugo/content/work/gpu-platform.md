@@ -56,9 +56,6 @@ Both came from one team doing every step by hand.
 
 {{< flow "access" >}}
 
-GPU sharing (MIG and time-slicing) lets several small jobs use one large GPU.
-Model serving uses the open-source servers teams already know: KServe, vLLM and Triton.
-
 {{< figure src="/images/work/gpu-fleet.webp" alt="GPU fleet dashboard showing total, allocated, used and available GPUs, utilization charts and a GPU inventory by type" caption="The fleet view turns a capacity argument into a number. Public product image from devtron.ai, with sample data." >}}
 
 ## What I left out

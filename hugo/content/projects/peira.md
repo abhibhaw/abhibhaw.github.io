@@ -57,7 +57,3 @@ Teams learn about it from users, read traces by hand, and hope a fix does not br
 
 The replay rebuilds the apps and data the agent used from its traces, so it never touches real systems.
 
-## Why this matters to me
-
-At Devtron I work on how companies [ship and govern AI agents](/work/ai-control-plane/).
-Peira explores the next question: how does an agent get better after it ships?

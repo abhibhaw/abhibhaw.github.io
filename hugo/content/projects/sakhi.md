@@ -59,7 +59,6 @@ When her son forgets to remind her, she forgets, and her doctor sees a gap.
 | Sakhi calls first | She will not open an app. Sakhi reaches out on its own schedule. |
 | One care plan | Diet advice must work for all her conditions at once. |
 | A contact budget | At most 3 messages and 1 call a day, with quiet hours. |
-| "Health saathi", never "advisor" | "Advisor" can suggest a medical licence. Sakhi never claims to be human. |
 
 ## Safety is code
 
