@@ -1,4 +1,4 @@
-[![Netlify Status](https://api.netlify.com/api/v1/badges/5fac43d5-7aa4-4d6c-af1c-4f241cd863af/deploy-status)](https://app.netlify.com/sites/romantic-archimedes-b4c1c3/deploys)
+[![Deploy to Cloudflare](https://github.com/abhibhaw/abhibhaw.github.io/actions/workflows/deploy.yml/badge.svg)](https://github.com/abhibhaw/abhibhaw.github.io/actions/workflows/deploy.yml)
 
 # Landing Page
 
