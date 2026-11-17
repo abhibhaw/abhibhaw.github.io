@@ -1,0 +1,121 @@
+{{- /* Standalone resume page. Data comes from content/resume.md front matter. Print output is the PDF. */ -}}
+{{- $p := .Params -}}
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{{ $p.name }} - Resume</title>
+<meta name="description" content="{{ .Description }}">
+<link rel="canonical" href="{{ .Permalink }}">
+<link rel="icon" href="{{ "favicon.ico" | relURL }}">
+{{- if hugo.IsProduction }}{{ partial "google_analytics.html" . }}{{ end }}
+<style>
+:root{
+  --ink:#16191c; --muted:#59616a; --rule:#d5d9dd; --accent:#0f5f5b; --bg:#ffffff; --page:#eef0f1;
+  --font:"Helvetica Neue",Helvetica,Arial,sans-serif;
+}
+*{box-sizing:border-box}
+html{background:var(--page)}
+body{margin:0;background:var(--page);color:var(--ink);font:9.6pt/1.36 var(--font);-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+a:hover{text-decoration:underline}
+a:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.bar{max-width:210mm;margin:0 auto;padding:16px max(16px,env(safe-area-inset-left,0px)) 0;display:flex;justify-content:space-between;gap:12px;font-size:13px}
+.bar a{color:var(--accent);font-weight:600}
+.sheet{max-width:210mm;margin:12px auto 40px;background:var(--bg);padding:13mm 14mm;box-shadow:0 1px 3px rgba(0,0,0,.08)}
+header{display:grid;gap:3px;padding-bottom:6px;border-bottom:1.5px solid var(--ink)}
+h1{margin:0;font-size:20pt;line-height:1.1;letter-spacing:-.01em}
+.headline{font-size:11pt;font-weight:600;color:var(--accent)}
+.contact{display:flex;flex-wrap:wrap;gap:2px 14px;color:var(--muted);font-size:9pt}
+.summary{margin:5px 0 0}
+h2{margin:9px 0 4px;font-size:9pt;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);border-bottom:1px solid var(--rule);padding-bottom:2px}
+h2 small{font-weight:400;letter-spacing:.04em;text-transform:none;color:var(--muted);font-size:8.5pt}
+.job{margin-top:5px;break-inside:avoid}
+.job-head{display:flex;justify-content:space-between;align-items:baseline;gap:2px 12px;flex-wrap:wrap}
+.job-head b{font-size:10.5pt}
+.job-head .role{font-weight:400}
+.job-head .note{color:var(--muted);font-weight:400}
+.dates{color:var(--muted);font-size:9pt;white-space:nowrap;font-variant-numeric:tabular-nums}
+.about{color:var(--muted);font-size:9pt;margin:1px 0 0}
+.product{margin:3px 0 0;font-size:9.5pt}
+.product b{font-weight:700}
+.product span{color:var(--muted)}
+ul{margin:1px 0 0;padding-left:14px;display:grid;gap:1px}
+li{padding-left:1px}
+li b{font-weight:600}
+.edu{display:flex;justify-content:space-between;gap:2px 12px;flex-wrap:wrap}
+.skills{display:grid;gap:2px;margin:0}
+.skills div{display:grid;grid-template-columns:68px 1fr;gap:8px}
+.skills dt{font-weight:600}
+.skills dd{margin:0}
+@media (max-width:640px){
+  body{font-size:14px}
+  .sheet{margin:12px 0 32px;padding:20px max(16px,env(safe-area-inset-left,0px));box-shadow:none}
+  .skills div{grid-template-columns:1fr;gap:0}
+}
+@page{size:A4;margin:10mm 12mm}
+@media print{
+  html,body{background:#fff}
+  .bar{display:none}
+  .sheet{max-width:none;margin:0;padding:0;box-shadow:none}
+  a{text-decoration:none}
+}
+</style>
+</head>
+<body>
+<nav class="bar" aria-label="Resume actions">
+  <a href="{{ "/" | relURL }}">&larr; abhibhaw.com</a>
+  <a href="{{ "resume.pdf" | relURL }}">Download PDF</a>
+</nav>
+<main class="sheet">
+  <header>
+    <h1>{{ $p.name }}</h1>
+    <div class="headline">{{ $p.headline }}</div>
+    <div class="contact">
+      {{- range $p.contact }}<a href="{{ .url }}">{{ .label }}</a>{{ end -}}
+    </div>
+    <p class="summary">{{ $p.summary }}</p>
+  </header>
+
+  <section>
+    <h2>Experience</h2>
+    {{- range $p.experience }}
+    <div class="job">
+      <div class="job-head">
+        <span><b>{{ .company }}</b> · <span class="role">{{ .role }}</span>{{ with .note }} <span class="note">({{ . }})</span>{{ end }}</span>
+        <span class="dates">{{ .dates }}</span>
+      </div>
+      {{- with .about }}<p class="about">{{ . }}</p>{{ end }}
+      {{- range .products }}
+      <p class="product"><b>{{ .name }}</b> <span>· {{ .about }}</span></p>
+      <ul>{{ range .bullets }}<li><b>{{ .title }}:</b> {{ .text }}</li>{{ end }}</ul>
+      {{- end }}
+      {{- with .bullets }}
+      <ul>{{ range . }}<li><b>{{ .title }}:</b> {{ .text }}</li>{{ end }}</ul>
+      {{- end }}
+    </div>
+    {{- end }}
+  </section>
+
+  <section>
+    <h2>Projects {{ with $p.projects_note }}<small>· {{ . }}</small>{{ end }}</h2>
+    <ul>{{ range $p.projects }}<li><b>{{ .title }}:</b> {{ .text }}</li>{{ end }}</ul>
+  </section>
+
+  <section>
+    <h2>Education</h2>
+    {{- range $p.education }}
+    <div class="edu"><span><b>{{ .school }}</b> · {{ .degree }}</span><span class="dates">{{ .dates }}</span></div>
+    {{- end }}
+  </section>
+
+  <section>
+    <h2>Skills</h2>
+    <dl class="skills">
+      {{- range $p.skills }}<div><dt>{{ .label }}</dt><dd>{{ .text }}</dd></div>{{ end }}
+    </dl>
+  </section>
+</main>
+</body>
+</html>

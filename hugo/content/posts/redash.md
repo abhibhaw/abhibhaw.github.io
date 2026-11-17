@@ -13,7 +13,6 @@ hidemeta: false
 comments: false
 description: "Hands on with Redash API with python"
 canonicalURL: "https://redash.io/help/user-guide/integrations-and-api/api/"
-disableHLJS: true # to disable highlightjs
 disableShare: false
 disableHLJS: false
 hideSummary: false

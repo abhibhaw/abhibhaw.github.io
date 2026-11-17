@@ -140,7 +140,7 @@ menu:
       weight: 20
     - identifier: resume
       name: resume
-      url: /resume.pdf
+      url: /resume/
       weight: 30
 # Read: https://github.com/adityatelange/hugo-PaperMod/wiki/FAQs#using-hugos-syntax-highlighter-chroma
 pygmentsUseClasses: true

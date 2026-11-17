@@ -13,7 +13,6 @@ hidemeta: false
 comments: false
 description: "GitHub's online schema migration for MySQL."
 canonicalURL: "https://github.com/github/gh-ost"
-disableHLJS: true # to disable highlightjs
 disableShare: false
 disableHLJS: false
 hideSummary: false
