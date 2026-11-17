@@ -29,7 +29,7 @@ h1{margin:0;font-size:20pt;line-height:1.1;letter-spacing:-.01em}
 .headline{font-size:11pt;font-weight:600;color:var(--accent)}
 .contact{display:flex;flex-wrap:wrap;gap:2px 14px;color:var(--muted);font-size:9pt}
 .summary{margin:5px 0 0}
-h2{margin:9px 0 4px;font-size:9pt;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);border-bottom:1px solid var(--rule);padding-bottom:2px}
+h2{margin:9px 0 4px;font-size:9pt;letter-spacing:.03em;text-transform:uppercase;color:var(--accent);border-bottom:1px solid var(--rule);padding-bottom:2px}
 h2 small{font-weight:400;letter-spacing:.04em;text-transform:none;color:var(--muted);font-size:8.5pt}
 .job{margin-top:5px;break-inside:avoid}
 .job-head{display:flex;justify-content:space-between;align-items:baseline;gap:2px 12px;flex-wrap:wrap}
@@ -45,14 +45,12 @@ ul{margin:1px 0 0;padding-left:14px;display:grid;gap:1px}
 li{padding-left:1px}
 li b{font-weight:600}
 .edu{display:flex;justify-content:space-between;gap:2px 12px;flex-wrap:wrap}
-.skills{display:grid;gap:2px;margin:0}
-.skills div{display:grid;grid-template-columns:68px 1fr;gap:8px}
-.skills dt{font-weight:600}
-.skills dd{margin:0}
+.skills{display:grid;gap:2px}
+.skills p{margin:0}
+.skills b{font-weight:600}
 @media (max-width:640px){
   body{font-size:14px}
   .sheet{margin:12px 0 32px;padding:20px max(16px,env(safe-area-inset-left,0px));box-shadow:none}
-  .skills div{grid-template-columns:1fr;gap:0}
 }
 @page{size:A4;margin:10mm 12mm}
 @media print{
@@ -112,9 +110,9 @@ li b{font-weight:600}
 
   <section>
     <h2>Skills</h2>
-    <dl class="skills">
-      {{- range $p.skills }}<div><dt>{{ .label }}</dt><dd>{{ .text }}</dd></div>{{ end }}
-    </dl>
+    <div class="skills">
+      {{- range $p.skills }}<p><b>{{ .label }}:</b> {{ .text }}</p>{{ end }}
+    </div>
   </section>
 </main>
 </body>

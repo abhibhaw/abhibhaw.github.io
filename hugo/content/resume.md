@@ -24,7 +24,7 @@ summary: >-
   Product manager who builds.
   I find where people wait, decide what to build and what to leave out, and ship the first version with AI agents.
   Currently leading product at Devtron.
-  Products in enterprise B2B, AI agents, health and education.
+  Products in enterprise B2B, AI agents and health.
 
 experience:
   - company: "Devtron"
