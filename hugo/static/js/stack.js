@@ -14,6 +14,31 @@ if (root) {
 
   const depth = (i) => (i - front + n) % n;
 
+  // The front card replays its story: the after bar collapses, the number counts up.
+  function play(card) {
+    if (still.matches) return;
+    const row = card.querySelector('.meter-row.is-after');
+    if (row) {
+      row.classList.add('is-arming');
+      void row.offsetWidth;
+      row.classList.remove('is-arming');
+    }
+    const num = card.querySelector('[data-count]');
+    const m = num && num.textContent.match(/^(\D*)([\d,]+)(.*)$/);
+    if (!m) return;
+    const target = Number(m[2].replace(/,/g, ''));
+    const fmt = (v) => m[1] + Math.round(v).toLocaleString('en-US') + m[3];
+    const t0 = performance.now();
+    const dur = 900;
+    const tick = (t) => {
+      const k = Math.min(1, (t - t0) / dur);
+      num.textContent = fmt(target * (1 - Math.pow(1 - k, 3)));
+      if (k < 1) requestAnimationFrame(tick);
+    };
+    num.setAttribute('aria-label', m[0]);
+    requestAnimationFrame(tick);
+  }
+
   function paint() {
     cards.forEach((card, i) => {
       const d = depth(i);
@@ -48,6 +73,7 @@ if (root) {
       ghost.finished.then(() => { old.style.transition = ''; }).catch(() => {});
     }
     paint();
+    play(cards[front]);
   }
 
   function sync() {
@@ -102,4 +128,6 @@ if (root) {
 
   paint();
   sync();
+  // Play the first card once the hero has entered.
+  setTimeout(() => play(cards[front]), 500);
 }
