@@ -18,7 +18,7 @@ OWN-WORLD: Cool off-white datasheet stock, graphite ink, a measured plotting gri
 
 STORY: The visitor sees the pattern (waits removed, safely), sees real numbers plotted, opens a case, emails.
 
-FIRST VIEWPORT: Left: part line ("Abhibhaw Asthana / Product manager who builds / Rev 2026"), portrait in a small title block, primary actions Email and Resume. Right: one plotted characteristic, "Wait time by product", bars stepping from before to after for GPU, BharatPe, Atlas, in family colours. Below the fold edge: the family band of the first case.
+FIRST VIEWPORT: Left: part line ("Abhibhaw Asthana / Product manager who builds"), portrait in a small title block, primary actions Email and Resume. Right: one plotted characteristic, "Wait time by product", bars stepping from before to after for GPU, BharatPe, Atlas, in family colours. Below the fold edge: the family band of the first case.
 
 FORM: The Datasheet, position 7 of 7 on my grounded list. seed:80548628bd4290cb
 
