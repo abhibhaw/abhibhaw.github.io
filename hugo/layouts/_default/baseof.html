@@ -7,5 +7,6 @@
 {{ partial "footer.html" . }}
 <script type="module" src="{{ "kit/system.js" | relURL }}"></script>
 <script type="module" src="{{ "kit/motion/motion.js" | relURL }}"></script>
+{{ if .IsHome }}<script type="module" src="{{ "js/stack.js" | relURL }}"></script>{{ end }}
 </body>
 </html>
